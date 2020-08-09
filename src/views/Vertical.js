@@ -24,14 +24,14 @@ function OpenFrame(props) {
       <div
         style={{
           width: "100%",
-          background: 'grey',
+          background: '#0b556a',
         }}
         className="vertical"
       />
       <div
         style={{
           height: `${height}vh`,
-          background: 'grey',
+          background: '#0b556a',
           width: "100%",
           transition: "height 1s",
         }}

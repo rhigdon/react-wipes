@@ -13,6 +13,7 @@ import {Horizontal} from './views/Horizontal';
 import {ScaleUp} from './views/ScaleUp';
 import {StarWipe} from './views/StarWipe';
 import {Vertical} from './views/Vertical';
+import {SplitVertical} from './views/SplitVertical';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/vertical">
               <Vertical />
+          </Route>
+          <Route path="/split-vertical">
+              <SplitVertical />
           </Route>
           <Route path="/horizontal">
               <Horizontal />
@@ -47,7 +51,7 @@ function Home() {
   return (
     <div className="App-header">
       <Link className="App-link" to="/vertical">Vertical</Link>
-      <Link className="App-link" to="/vertical">Split Vertical / Opposite Horizontal Exit</Link>
+      <Link className="App-link" to="/split-vertical">Split Vertical</Link>
       <Link className="App-link" to="/diagonal">Diagonal</Link>
       <Link className="App-link" to="/diagonal">Split Diagonal</Link>
       <Link className="App-link" to="/horizontal">Horizontal</Link>

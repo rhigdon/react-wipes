@@ -24,15 +24,16 @@
   color: white;
 }
 .shape {
-  fill: grey;
+  fill: #0b556a;
 }
 .split-horizontal {
   animation: shrink infinite 1s linear;
 }
 
-.vertical {
+.vertical, .split-vertical {
   animation: shrinkHeight infinite 1s linear;
 }
+
 
 .App-link {
   color: #61dafb;
