@@ -21,12 +21,12 @@ function OpenFrame(props) {
       overflow: "hidden",
     }}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
-        <Screen />
+        <Screen direction={props.direction}/>
       </div>
     </div>
   )
 }
-function Screen() {
+function Screen(props) {
   let style = { position:"fixed", top:0, bottom:0, left:0, right:0 };
   let ref = React.useRef(null)
   React.useEffect(()=>{
@@ -34,11 +34,12 @@ function Screen() {
     basicTimeline
       .add({
         targets:ref.current,
-        translateX: `${window.innerWidth}px`,
+        translateX: props.direction ? `-=${window.innerWidth}` : `${window.innerWidth}px`,
         duration: 1000,
-        easing: "easeOutSine"
+        easing: "easeInOutSine",
       })
-  }, [ref])
+      
+  }, [ref, props])
   return (
     <div
       ref={ref}
@@ -50,10 +51,10 @@ function Screen() {
     ></div>
   )
 }
-export function Horizontal(){
+export function Horizontal({direction}){
   return (
     <div className="App-header">
-      <OpenFrame />
+      <OpenFrame direction={direction}/>
       <BackLink />
     </div>
   )
