@@ -31,6 +31,9 @@ function App() {
           <Route path="/horizontal">
               <Horizontal />
           </Route>
+          <Route path="/horizontal-reverse">
+            <Horizontal direction='reverse' />
+          </Route>
           <Route path="/split-horizontal">
               <SplitHorizontal />
           </Route>
@@ -55,6 +58,7 @@ function Home() {
       <Link className="App-link" to="/diagonal">Diagonal</Link>
       <Link className="App-link" to="/diagonal">Split Diagonal</Link>
       <Link className="App-link" to="/horizontal">Horizontal</Link>
+      <Link className="App-link" to="/horizontal-reverse">Horizontal Reverse</Link>
       <Link className="App-link" to="/scale-up">Scale Up</Link>
       <Link className="App-link" to="/star-wipe">Star Wipe</Link>
       <Link className="App-link" to="/split-horizontal">Split Horizontal</Link>
