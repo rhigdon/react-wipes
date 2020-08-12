@@ -14,6 +14,7 @@ import {ScaleUp} from './views/ScaleUp';
 import {StarWipe} from './views/StarWipe';
 import {Vertical} from './views/Vertical';
 import {SplitVertical} from './views/SplitVertical';
+import {Bounce} from './views/Bounce';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
           <Route path="/star-wipe">
               <StarWipe />
           </Route>
+          <Route path="/bounce">
+            <Bounce />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
@@ -62,6 +66,7 @@ function Home() {
       <Link className="App-link" to="/scale-up">Scale Up</Link>
       <Link className="App-link" to="/star-wipe">Star Wipe</Link>
       <Link className="App-link" to="/split-horizontal">Split Horizontal</Link>
+      <Link className="App-link" to="/bounce">Bounce</Link>
       {/**
         <Link className="App-link" to="/next">Matrix</Link>
         <Link className="App-link" to="/next">Heart</Link>
