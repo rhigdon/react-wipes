@@ -1,5 +1,4 @@
 import React from 'react';
-import {BackLink} from '../components/BackLink'
 
 function OpenFrame(props) {
   const [isVisible, setIsVisible] = React.useState(true)
@@ -8,7 +7,7 @@ function OpenFrame(props) {
   React.useEffect(()=>{
     let timeout = setTimeout(()=>{
       setIsVisible(false)
-    }, 1000)
+    }, 900)
     return ()=>{
       clearTimeout(timeout)
     };
@@ -44,7 +43,7 @@ function OpenFrame(props) {
           style={{
             height: `100%`,
             width: `100%`,
-            background: 'grey',
+            background: '#0b556a',
             transition: "height 1s, width 1s",
           }}
         />
@@ -66,7 +65,7 @@ function OpenFrame(props) {
             className="split-horizontal"
             style={{
               height: `100%`,
-              background: 'grey',
+              background: '#0b556a',
               width: `100%`,
               //transition: "height 1s, width 1s",
             }}
@@ -76,11 +75,11 @@ function OpenFrame(props) {
     </div>
   )
 }
-export function SplitHorizontal(){
+export function SplitHorizontalWipe({children}){
   return (
-    <div className="App-header">
+    <div>
       <OpenFrame />
-      <BackLink />
+      {children}
     </div>
   )
 }

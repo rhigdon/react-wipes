@@ -1,13 +1,12 @@
 import React from 'react';
 import Anime, {anime} from "react-anime";
-import {BackLink} from '../components/BackLink'
 
 function OpenFrame(props) {
   const [isVisible, setIsVisible] = React.useState(true)
   React.useEffect(()=>{
     let timeout = setTimeout(()=>{
       setIsVisible(false)
-    }, 1000)
+    }, 900)
     return ()=>{
       clearTimeout(timeout)
     };
@@ -18,9 +17,11 @@ function OpenFrame(props) {
       position: "absolute",
       width: "100%",
       height: "100%",
+      overflow: "hidden",
     }}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
         <Anime delay={anime.stagger(100)}
+               duration={5000}
                scale={[0, 1]}
         >
           <div style={{
@@ -33,11 +34,11 @@ function OpenFrame(props) {
     </div>
   )
 }
-export function ScaleUp(){
+export function ScaleWipe({children}){
   return (
-    <div className="App-header">
+    <div>
       <OpenFrame />
-      <BackLink />
+      {children}
     </div>
   )
 }

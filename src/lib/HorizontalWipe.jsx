@@ -1,6 +1,5 @@
 import React from 'react';
 import {anime} from "react-anime";
-import {BackLink} from '../components/BackLink'
 
 function OpenFrame(props) {
   const [isVisible, setIsVisible] = React.useState(true)
@@ -50,11 +49,11 @@ function Screen(props) {
     ></div>
   )
 }
-export function Horizontal({direction}){
+export function HorizontalWipe({children, direction}){
   return (
     <div className="App-header">
       <OpenFrame direction={direction}/>
-      <BackLink />
+      {children}
     </div>
   )
 }

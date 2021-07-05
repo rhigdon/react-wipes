@@ -1,15 +1,11 @@
-import anime from 'animejs/lib/anime.es.js';
 import React from "react";
-import {BackLink} from '../components/BackLink'
 
-function OpenFrame(props) {
-  const [height, setHeight] = React.useState(50)
+function Overlay() {
   const [isVisible, setIsVisible] = React.useState(true)
-  React.useEffect(()=>{
-    setHeight(0)
+  React.useEffect(() => {
     let timeout = setTimeout(()=>{
       setIsVisible(false)
-    }, 1000)
+    }, 920)
     return ()=>{
       clearTimeout(timeout)
     };
@@ -20,6 +16,7 @@ function OpenFrame(props) {
       position: "absolute",
       width: "100%",
       height: "100%",
+      top: 0,
     }}>
       <div
         style={{
@@ -30,7 +27,6 @@ function OpenFrame(props) {
       />
       <div
         style={{
-          height: `${height}vh`,
           background: '#0b556a',
           width: "100%",
           transition: "height 1s",
@@ -41,44 +37,16 @@ function OpenFrame(props) {
   )
 }
 
-export function Vertical(){
+export function VerticalWipe({children}){
   return (
-    <div className="App-header">
-      <BackLink />
-      <OpenFrame />
+    <div>
+      <Overlay />
+      {children}
     </div>
   )
 }
 
 function Shape (){
-
-  React.useEffect(()=>{
-    const duration = 4000;
-    const shape = document.querySelector('.shape');
-    const path = shape.querySelector('path');
-    anime({
-      targets: shape,
-      scaleY: [
-        {
-          value: [1, 1.8],
-          duration: duration * 0.5,
-          easing: 'easeInQuad',
-        },
-        {
-          value: 1,
-          duration: duration * 0.5,
-          easing: 'easeOutQuad',
-        }
-      ]
-    });
-    anime({
-      targets: path,
-      duration,
-      easing: 'easeOutQuad',
-      d: path.getAttribute('d')
-    });
-  }, [])
-
   return (
     <svg
       className="shape"

@@ -7,45 +7,65 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
-import {SplitHorizontal} from './views/SplitHorizontal';
-import {Diagonal} from './views/Diagonal';
-import {Horizontal} from './views/Horizontal';
-import {ScaleUp} from './views/ScaleUp';
-import {StarWipe} from './views/StarWipe';
-import {Vertical} from './views/Vertical';
-import {SplitVertical} from './views/SplitVertical';
-import {Bounce} from './views/Bounce';
+import {
+  BounceWipe,
+  DiagonalWipe,
+  HorizontalWipe,
+  ScaleWipe,
+  SplitHorizontalWipe,
+  SplitVerticalWipe,
+  StarWipe,
+  VerticalWipe,
+} from './lib'
 
 function App() {
   return (
-    <Router>
+    <Router forceRefresh={true}>
         <Switch>
           <Route path="/diagonal">
-            <Diagonal />
+            <DiagonalWipe>
+              <Home />
+            </DiagonalWipe>
           </Route>
           <Route path="/vertical">
-              <Vertical />
+              <VerticalWipe>
+                <Home />
+              </VerticalWipe>
           </Route>
           <Route path="/split-vertical">
-              <SplitVertical />
+              <SplitVerticalWipe>
+                <Home />
+              </SplitVerticalWipe>
           </Route>
           <Route path="/horizontal">
-              <Horizontal />
+              <HorizontalWipe>
+                <Home />
+              </HorizontalWipe>
           </Route>
           <Route path="/horizontal-reverse">
-            <Horizontal direction='reverse' />
+            <HorizontalWipe direction='reverse'>
+              <Home />
+            </HorizontalWipe>
           </Route>
           <Route path="/split-horizontal">
-              <SplitHorizontal />
+              <SplitHorizontalWipe>
+                <Home />
+              </SplitHorizontalWipe>
           </Route>
           <Route path="/scale-up">
-              <ScaleUp />
+              <ScaleWipe>
+                <Home />
+              </ScaleWipe>
           </Route>
           <Route path="/star-wipe">
-              <StarWipe />
+              <StarWipe>
+                <Home />
+              </StarWipe>
           </Route>
           <Route path="/bounce">
-            <Bounce />
+            <BounceWipe>
+              <Home />
+            </BounceWipe>
           </Route>
           <Route path="/">
             <Home />
@@ -62,11 +82,15 @@ function Home() {
       <a href="https://github.com/rhigdon/react-wipes" rel="noopener noreferrer" target="_blank">https://github.com/rhigdon/react-wipes</a>
       <Typography variant="h2">Install</Typography>
       <Typography variant="subtitle1">npm install react-wipes</Typography>
+      <Typography variant="h2">Usage</Typography>
+      <Typography variant="subtitle1">Internal Links / External Links</Typography>
       <Typography variant="h2">Examples</Typography>
-      <Link className="App-link" to="/vertical">Vertical</Link>
+      <Link replace={false} className="App-link" to="/vertical">Vertical</Link>
       <Link className="App-link" to="/split-vertical">Split Vertical</Link>
       <Link className="App-link" to="/diagonal">Diagonal</Link>
+      {/**
       <Link className="App-link" to="/diagonal">Split Diagonal</Link>
+      */}
       <Link className="App-link" to="/horizontal">Horizontal</Link>
       <Link className="App-link" to="/horizontal-reverse">Horizontal Reverse</Link>
       <Link className="App-link" to="/scale-up">Scale Up</Link>

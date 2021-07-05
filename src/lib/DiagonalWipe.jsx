@@ -1,6 +1,5 @@
 import React from 'react';
 import Anime, {anime} from "react-anime";
-import {BackLink} from '../components/BackLink'
 
 function OpenFrame(props) {
   const [isVisible, setIsVisible] = React.useState(true)
@@ -39,11 +38,11 @@ function OpenFrame(props) {
     </div>
   )
 }
-export function Diagonal(){
+export function DiagonalWipe({children}){
   return (
     <div className="App-header">
       <OpenFrame />
-      <BackLink />
+      {children}
     </div>
   )
 }
