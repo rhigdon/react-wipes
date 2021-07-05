@@ -18,6 +18,7 @@ function OpenFrame(props) {
       width: "100%",
       height: "100%",
       overflow: "hidden",
+      top: 0,
     }}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
         <Anime delay={anime.stagger(100)}

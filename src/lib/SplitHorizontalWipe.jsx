@@ -31,11 +31,13 @@ function OpenFrame(props) {
       position: "absolute",
       width: "100%",
       height: "100%",
+      top: 0,
     }}>
       <div style={{
         position: "absolute",
         width: "50%",
         height: "100%",
+        top: 0,
       }}>
         <div
           ref={leftRef}
@@ -52,6 +54,7 @@ function OpenFrame(props) {
         left: "50%",
         position: "absolute",
         width: "50%",
+        top: 0,
         height: "100%",
       }}>
         <div style={{

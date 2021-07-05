@@ -17,6 +17,7 @@ function OpenFrame(props) {
       position: "absolute",
       width: "100%",
       height: "100%",
+      top: 0,
     }}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
         <StarCutout />
@@ -33,7 +34,7 @@ function StarCutout() {
       .add({
         targets:ref.current,
         scale: [1, 55],
-        duration: 2000,
+        duration: 3000,
         easing: "easeOutSine"
       })
   }, [ref])

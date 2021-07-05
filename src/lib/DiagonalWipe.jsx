@@ -16,6 +16,7 @@ function OpenFrame(props) {
       display: isVisible ? "block" : "none",
       position: "absolute",
       width: "100%",
+      top: 0,
       height: "100%",
       overflow: "hidden",
     }}>

@@ -1,10 +1,10 @@
 import Typography from '@material-ui/core/Typography'
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
 } from "react-router-dom";
 import './App.css';
 import {
@@ -20,7 +20,7 @@ import {
 
 function App() {
   return (
-    <Router forceRefresh={true}>
+    <Router>
         <Switch>
           <Route path="/diagonal">
             <DiagonalWipe>
@@ -85,18 +85,18 @@ function Home() {
       <Typography variant="h2">Usage</Typography>
       <Typography variant="subtitle1">Internal Links / External Links</Typography>
       <Typography variant="h2">Examples</Typography>
-      <Link replace={false} className="App-link" to="/vertical">Vertical</Link>
-      <Link className="App-link" to="/split-vertical">Split Vertical</Link>
-      <Link className="App-link" to="/diagonal">Diagonal</Link>
+      <AppLink to="vertical">Vertical</AppLink>
+      <AppLink to="split-vertical">Split Vertical</AppLink>
+      <AppLink to="diagonal">Diagonal</AppLink>
       {/**
       <Link className="App-link" to="/diagonal">Split Diagonal</Link>
       */}
-      <Link className="App-link" to="/horizontal">Horizontal</Link>
-      <Link className="App-link" to="/horizontal-reverse">Horizontal Reverse</Link>
-      <Link className="App-link" to="/scale-up">Scale Up</Link>
-      <Link className="App-link" to="/star-wipe">Star Wipe</Link>
-      <Link className="App-link" to="/split-horizontal">Split Horizontal</Link>
-      <Link className="App-link" to="/bounce">Bounce</Link>
+      <AppLink to="horizontal">Horizontal</AppLink>
+      <AppLink to="horizontal-reverse">Horizontal Reverse</AppLink>
+      <AppLink to="scale-up">Scale Up</AppLink>
+      <AppLink to="star-wipe">Star Wipe</AppLink>
+      <AppLink to="split-horizontal">Split Horizontal</AppLink>
+      <AppLink to="bounce">Bounce</AppLink>
       {/**
         <Link className="App-link" to="/next">Matrix</Link>
         <Link className="App-link" to="/next">Heart</Link>
@@ -106,7 +106,16 @@ function Home() {
   )
 }
 
-
+function AppLink({to}) {
+  return (
+    <Link className="App-link" onClick={()=>{
+      window.location.href="/react-wipes#"+to
+      if (window.location.hash === ("#" + to)) {
+        window.location.reload()
+      }
+    }} to={to}>{to}</Link>
+  )
+}
 
 
 export default App;

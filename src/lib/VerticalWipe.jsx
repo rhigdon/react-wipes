@@ -5,7 +5,7 @@ function Overlay() {
   React.useEffect(() => {
     let timeout = setTimeout(()=>{
       setIsVisible(false)
-    }, 920)
+    }, 900)
     return ()=>{
       clearTimeout(timeout)
     };
