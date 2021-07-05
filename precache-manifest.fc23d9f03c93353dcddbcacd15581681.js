@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e39af49149964cac40ee746b0e431297",
+    "revision": "17216d8c859509bc13fc6b68a2a40bf5",
     "url": "/react-wipes/index.html"
   },
   {
-    "revision": "c4eea09f0d0a37d83773",
+    "revision": "46f56f3873ac78a9fcbe",
     "url": "/react-wipes/static/css/main.f9dcaa19.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-wipes/static/js/2.6d3e21da.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c4eea09f0d0a37d83773",
-    "url": "/react-wipes/static/js/main.420f0257.chunk.js"
+    "revision": "46f56f3873ac78a9fcbe",
+    "url": "/react-wipes/static/js/main.1222b911.chunk.js"
   },
   {
     "revision": "da07f2026ffa5209fb06",
