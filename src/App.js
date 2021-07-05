@@ -1,4 +1,4 @@
-import anime from 'animejs/lib/anime.es.js';
+import Typography from '@material-ui/core/Typography'
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -57,6 +57,12 @@ function App() {
 function Home() {
   return (
     <div className="App-header">
+      <Typography variant="h1">React Wipes</Typography>
+      <Typography variant="h2">Github</Typography>
+      <a href="https://github.com/rhigdon/react-wipes" rel="noopener noreferrer" target="_blank">https://github.com/rhigdon/react-wipes</a>
+      <Typography variant="h2">Install</Typography>
+      <Typography variant="subtitle1">npm install react-wipes</Typography>
+      <Typography variant="h2">Examples</Typography>
       <Link className="App-link" to="/vertical">Vertical</Link>
       <Link className="App-link" to="/split-vertical">Split Vertical</Link>
       <Link className="App-link" to="/diagonal">Diagonal</Link>

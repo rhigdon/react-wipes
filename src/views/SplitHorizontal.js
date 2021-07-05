@@ -2,7 +2,6 @@ import React from 'react';
 import {BackLink} from '../components/BackLink'
 
 function OpenFrame(props) {
-  const [width, setWidth] = React.useState(100)
   const [isVisible, setIsVisible] = React.useState(true)
   const leftRef = React.createRef(null)
   const rightRef = React.createRef(null)
@@ -26,7 +25,7 @@ function OpenFrame(props) {
         rightRef.current.style.width = "0%";
       }, 5);
     }
-  }, [])
+  }, [leftRef, rightRef])
   return (
     <div style={{
       display: isVisible ? "block" : "none",

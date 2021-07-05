@@ -1,8 +1,10 @@
 {
-  "name": "web",
+  "name": "react-wipes",
+  "homepage": "https://rhigdon.github.io/react-wipes",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -14,6 +16,8 @@
     "react-scripts": "^3.4.2"
   },
   "scripts": {
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -33,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }

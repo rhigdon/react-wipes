@@ -1,5 +1,5 @@
 import React from 'react';
-import Anime, {anime} from "react-anime";
+import {anime} from "react-anime";
 import {BackLink} from '../components/BackLink'
 
 function OpenFrame(props) {
@@ -27,7 +27,6 @@ function OpenFrame(props) {
   )
 }
 function Screen(props) {
-  let style = { position:"fixed", top:0, bottom:0, left:0, right:0 };
   let ref = React.useRef(null)
   React.useEffect(()=>{
     var basicTimeline = anime.timeline();
@@ -38,7 +37,7 @@ function Screen(props) {
         duration: 1000,
         easing: "easeInOutSine",
       })
-      
+
   }, [ref, props])
   return (
     <div

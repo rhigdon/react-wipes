@@ -1,5 +1,5 @@
 import React from 'react';
-import Anime, {anime} from "react-anime";
+import {anime} from "react-anime";
 import {BackLink} from '../components/BackLink'
 
 function OpenFrame(props) {
@@ -50,7 +50,6 @@ function StarCutout() {
       style={style}
       >
       <path
-        fill="#61dafb"
       d="M.5,767.5V.5h1023v767ZM540.55,436.78l-7-48.89,36.31-33.47L521.21,346,500.6,301.08l-23.08,43.66-49,5.74,34.39,35.44-9.7,48.42,44.33-21.75Z" fill="#fff"/>
       <path
       fill="#61dafb"
