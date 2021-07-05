@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "17216d8c859509bc13fc6b68a2a40bf5",
+    "revision": "b0b300168d1439619c7123e115130a0b",
     "url": "/react-wipes/index.html"
   },
   {
