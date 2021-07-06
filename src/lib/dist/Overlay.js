@@ -3,21 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TransitionLink = TransitionLink;
+exports.Overlay = Overlay;
 
 var _react = _interopRequireDefault(require("react"));
-
-var _HorizontalWipe = require("./HorizontalWipe");
-
-var _VerticalWipe = require("./VerticalWipe");
-
-var _StarWipe = require("./StarWipe");
-
-var _SplitVerticalWipe = require("./SplitVerticalWipe");
-
-var _SplitHorizontalWipe = require("./SplitHorizontalWipe");
-
-var _ScaleWipe = require("./ScaleWipe");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,59 +21,54 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function getOverlay(overlay) {
-  switch (overlay) {
-    case "horizontal":
-      return _HorizontalWipe.Overlay;
+function Overlay(_ref) {
+  var children = _ref.children,
+      start = _ref.start,
+      onFinish = _ref.onFinish,
+      timeout = _ref.timeout;
 
-    case "scale":
-      return _ScaleWipe.Overlay;
-
-    case "split-horizontal":
-      return _SplitHorizontalWipe.Overlay;
-
-    case "split-vertical":
-      return _SplitVerticalWipe.Overlay;
-
-    case "star":
-      return _StarWipe.Overlay;
-
-    case "vertical":
-      return _VerticalWipe.Overlay;
-
-    default:
-      return _VerticalWipe.Overlay;
-  }
-}
-
-function TransitionLink(_ref) {
-  var className = _ref.className,
-      children = _ref.children,
-      overlay = _ref.overlay,
-      to = _ref.to;
-
-  var _React$useState = _react.default.useState(false),
+  var _React$useState = _react.default.useState(true),
       _React$useState2 = _slicedToArray(_React$useState, 2),
-      start = _React$useState2[0],
-      setStart = _React$useState2[1];
+      isVisible = _React$useState2[0],
+      setIsVisible = _React$useState2[1];
 
-  var Overlay = overlay ? getOverlay(overlay) : _VerticalWipe.Overlay;
+  var _React$useState3 = _react.default.useState(parseInt(window.scrollY, 10)),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      top = _React$useState4[0],
+      setTop = _React$useState4[1];
+
+  var ref = _react.default.createRef(null);
+
+  _react.default.useEffect(function () {
+    if (!start) return;
+
+    var _timeout = setTimeout(function () {
+      if (onFinish) {
+        onFinish();
+      }
+
+      setIsVisible(false);
+    }, timeout ? timeout : 900);
+
+    return function () {
+      clearTimeout(_timeout);
+    };
+  }, [start, onFinish, timeout]);
+
+  _react.default.useEffect(function () {
+    setTop(parseInt(window.scrollY, 10));
+  }, [ref]);
+
   return /*#__PURE__*/_react.default.createElement("div", {
+    ref: ref,
     style: {
-      cursor: 'pointer'
+      display: isVisible ? "block" : "none",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      top: top,
+      left: 0,
+      overflow: "hidden"
     }
-  }, start && /*#__PURE__*/_react.default.createElement(Overlay, {
-    start: start,
-    onFinish: function onFinish() {
-      window.open(to, '_blank');
-      setStart(false);
-    }
-  }), /*#__PURE__*/_react.default.createElement("a", {
-    className: className,
-    href: to,
-    onClick: function onClick(e) {
-      setStart(true);
-      e.preventDefault();
-    }
-  }, children));
+  }, children);
 }

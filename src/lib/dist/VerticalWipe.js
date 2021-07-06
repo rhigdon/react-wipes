@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Overlay = Overlay;
 exports.VerticalWipe = VerticalWipe;
 exports.withVerticalWipe = void 0;
 
@@ -24,28 +25,31 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function Overlay() {
-  var _React$useState = _react.default.useState(true),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      isVisible = _React$useState2[0],
-      setIsVisible = _React$useState2[1];
+function Overlay(_ref) {
+  var start = _ref.start,
+      onFinish = _ref.onFinish;
 
   _react.default.useEffect(function () {
+    if (!start) return;
     var timeout = setTimeout(function () {
-      setIsVisible(false);
+      if (onFinish) {
+        onFinish();
+      }
     }, 900);
     return function () {
       clearTimeout(timeout);
     };
-  }, []);
+  }, [start, onFinish]);
 
   return /*#__PURE__*/_react.default.createElement("div", {
     style: {
-      display: isVisible ? "block" : "none",
+      display: start ? "block" : "none",
       position: "absolute",
       width: "100%",
       height: "100%",
-      top: 0
+      overflow: "hidden",
+      top: 0,
+      left: 0
     }
   }, /*#__PURE__*/_react.default.createElement("div", {
     style: {
@@ -62,9 +66,20 @@ function Overlay() {
   }), /*#__PURE__*/_react.default.createElement(Shape, null));
 }
 
-function VerticalWipe(_ref) {
-  var children = _ref.children;
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, null), children);
+function VerticalWipe(_ref2) {
+  var children = _ref2.children;
+
+  var _React$useState = _react.default.useState(true),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      start = _React$useState2[0],
+      setStart = _React$useState2[1];
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    start: start,
+    onFinish: function onFinish() {
+      return setStart(false);
+    }
+  }), children);
 }
 
 function Shape() {
@@ -79,8 +94,8 @@ function Shape() {
 }
 
 var withVerticalWipe = function withVerticalWipe(Component) {
-  return function (_ref2) {
-    var props = _extends({}, _ref2);
+  return function (_ref3) {
+    var props = _extends({}, _ref3);
 
     return /*#__PURE__*/_react.default.createElement(VerticalWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
   };

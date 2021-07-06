@@ -1,22 +1,26 @@
 import React from "react";
 
-function Overlay() {
-  const [isVisible, setIsVisible] = React.useState(true)
+export function Overlay({start, onFinish}) {
   React.useEffect(() => {
+    if (!start) return
     let timeout = setTimeout(()=>{
-      setIsVisible(false)
+      if (onFinish) {
+        onFinish()
+      }
     }, 900)
     return ()=>{
       clearTimeout(timeout)
     };
-  }, [])
+  }, [start, onFinish])
   return (
     <div style={{
-      display: isVisible ? "block" : "none",
+      display: start ? "block" : "none",
       position: "absolute",
       width: "100%",
       height: "100%",
+      overflow: "hidden",
       top: 0,
+      left: 0,
     }}>
       <div
         style={{
@@ -38,9 +42,13 @@ function Overlay() {
 }
 
 export function VerticalWipe({children}){
+  const [start, setStart] = React.useState(true)
   return (
     <div>
-      <Overlay />
+      <Overlay
+        start={start}
+        onFinish={()=>setStart(false)}
+      />
       {children}
     </div>
   )

@@ -8946,16 +8946,12 @@ react-transition-group@^4.4.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-wipes@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/react-wipes/-/react-wipes-0.0.5.tgz#f0c9839a4a43dbc020ba5f93f39ea76748fb5c14"
-  integrity sha512-i1MXROUzDFQp2qMqdVq+DYyLKV3DCUCzh4DvFSHjsqjWx+P9N0Kqo4XifhGCrTA5ScAEq3frButYUjzW8n7SXQ==
+react-wipes@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-wipes/-/react-wipes-0.0.6.tgz#a0af5f3bc2567ae3316800935a5cda31e18b9914"
+  integrity sha512-x00Mf1HDuCHNWytztwA5pZUMxP7hC71rbBxFkNtO0T1mCFSMCRTur+x7aKpvU9qg4uohKBWQa6GU63RNK+t+Fw==
   dependencies:
-    "@testing-library/jest-dom" "^4.2.4"
-    "@testing-library/react" "^9.3.2"
-    "@testing-library/user-event" "^7.1.2"
     animejs "^3.2.0"
-    react "^16.13.1"
     react-anime "^3.0.3"
 
 react@^16.13.1:

@@ -1,32 +1,21 @@
 import React from 'react';
 import {anime} from "react-anime";
+import {Overlay as BaseOverlay} from './Overlay'
 
-function OpenFrame(props) {
-  const [isVisible, setIsVisible] = React.useState(true)
-  React.useEffect(()=>{
-    let timeout = setTimeout(()=>{
-      setIsVisible(false)
-    }, 1000)
-    return ()=>{
-      clearTimeout(timeout)
-    };
-  },[])
+export function Overlay(props) {
   return (
-    <div style={{
-      display: isVisible ? "block" : "none",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      top: 0,
-    }}>
+    <BaseOverlay {...props}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
         <StarCutout />
       </div>
-    </div>
+    </BaseOverlay>
   )
 }
 function StarCutout() {
-  let style = { position:"fixed", top:0, bottom:0, left:0, right:0 };
+  let style = {
+    position:"fixed", top:0, bottom:0, left:0, right:0,
+    overflow: "hidden",
+  };
   let ref = React.useRef(null)
   React.useEffect(()=>{
     var basicTimeline = anime.timeline();
@@ -44,8 +33,7 @@ function StarCutout() {
       width="100%"
       height="100%"
       id="e350d5ca-b3f4-4409-80c7-c3f48cc0f93e"
-      data-name="Layer 1"
-      xmlns="http://www.w3.org/2000/svg"
+      data-name="Star Cutout"
       viewBox="0 0 1024 768"
       style={style}
       >
@@ -59,7 +47,7 @@ function StarCutout() {
 export function StarWipe({children}){
   return (
     <div className="App-header">
-      <OpenFrame />
+      <Overlay start={true} />
       {children}
     </div>
   )

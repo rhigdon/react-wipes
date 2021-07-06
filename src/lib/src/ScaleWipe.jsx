@@ -1,25 +1,10 @@
 import React from 'react';
 import Anime, {anime} from "react-anime";
+import {Overlay as BaseOverlay} from './Overlay'
 
-function OpenFrame(props) {
-  const [isVisible, setIsVisible] = React.useState(true)
-  React.useEffect(()=>{
-    let timeout = setTimeout(()=>{
-      setIsVisible(false)
-    }, 900)
-    return ()=>{
-      clearTimeout(timeout)
-    };
-  },[])
+export function Overlay(props) {
   return (
-    <div style={{
-      display: isVisible ? "block" : "none",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      overflow: "hidden",
-      top: 0,
-    }}>
+    <BaseOverlay {...props}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
         <Anime delay={anime.stagger(100)}
                duration={5000}
@@ -32,13 +17,13 @@ function OpenFrame(props) {
           }}/>
         </Anime>
       </div>
-    </div>
+    </BaseOverlay>
   )
 }
 export function ScaleWipe({children}){
   return (
     <div>
-      <OpenFrame />
+      <Overlay start={true}/>
       {children}
     </div>
   )

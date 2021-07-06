@@ -1,24 +1,15 @@
 import React from 'react';
+import {Overlay as BaseOverlay} from './Overlay'
 
-function OpenFrame(props) {
-  const [isVisible, setIsVisible] = React.useState(true)
+export function Overlay(props) {
   const leftRef = React.createRef(null)
   const rightRef = React.createRef(null)
-  React.useEffect(()=>{
-    let timeout = setTimeout(()=>{
-      setIsVisible(false)
-    }, 900)
-    return ()=>{
-      clearTimeout(timeout)
-    };
-  },[])
   React.useEffect(()=>{
     if (leftRef && leftRef.current.style.width === "100%") {
       setTimeout(function () {
         leftRef.current.style.width = "0%";
       }, 5);
     }
-
     if (rightRef && rightRef.current.style.width === "100%") {
       setTimeout(function () {
         rightRef.current.style.width = "0%";
@@ -26,13 +17,7 @@ function OpenFrame(props) {
     }
   }, [leftRef, rightRef])
   return (
-    <div style={{
-      display: isVisible ? "block" : "none",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      top: 0,
-    }}>
+    <BaseOverlay {...props}>
       <div style={{
         position: "absolute",
         width: "50%",
@@ -75,13 +60,13 @@ function OpenFrame(props) {
           />
         </div>
       </div>
-    </div>
+    </BaseOverlay>
   )
 }
 export function SplitHorizontalWipe({children}){
   return (
     <div>
-      <OpenFrame />
+      <Overlay start={true}/>
       {children}
     </div>
   )

@@ -1,23 +1,9 @@
 import React from 'react';
+import {Overlay as BaseOverlay} from './Overlay'
 
-function OpenFrame(props) {
-  const [isVisible, setIsVisible] = React.useState(true)
-  React.useEffect(()=>{
-    let timeout = setTimeout(()=>{
-      setIsVisible(false)
-    }, 900)
-    return ()=>{
-      clearTimeout(timeout)
-    };
-  },[])
+export function Overlay(props) {
   return (
-    <div style={{
-      display: isVisible ? "block" : "none",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      top: 0,
-    }}>
+    <BaseOverlay {...props}>
       <div style={{
         position: "absolute",
         width: "100%",
@@ -54,13 +40,13 @@ function OpenFrame(props) {
           />
         </div>
       </div>
-    </div>
+    </BaseOverlay>
   )
 }
 export function SplitVerticalWipe({children}){
   return (
-    <div className="App-header">
-      <OpenFrame />
+    <div>
+      <Overlay start={true}/>
       {children}
     </div>
   )

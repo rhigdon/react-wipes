@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {anime} from 'react-anime';
+import {Overlay as BaseOverlay} from './Overlay'
 
 export let BounceWipe = (props) => {
     const {children} = props
@@ -26,14 +27,7 @@ export let BounceWipe = (props) => {
 
     return (
         <div>
-            <div style={{
-                display: isVisible ? "block" : "none",
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                top: 0,
-                overflow: "hidden",
-            }}>
+            <BaseOverlay start={isVisible} timeout={1500} {...props}>
                 <div style={{ display: "flex", width: "100%", height: "100%" }}>
                 <div
                     ref={ref}
@@ -42,7 +36,7 @@ export let BounceWipe = (props) => {
                         height: '100%',
                         backgroundColor: '#61dafb'
                     }}></div>
-            </div></div>
+            </div></BaseOverlay>
             {children}
         </div>
     )

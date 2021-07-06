@@ -17,10 +17,10 @@ import {
   SplitHorizontalWipe,
   SplitVerticalWipe,
   StarWipe,
-  VerticalWipe
+  TransitionLink,
+  VerticalWipe,
+  withBounceWipe,
 } from 'react-wipes/dist'
-import {withBounceWipe} from 'react-wipes/dist'
-import {TransitionLink} from 'react-wipes/dist'
 
 function App() {
   return (
@@ -84,17 +84,12 @@ function Home() {
     <div className="App-header">
       <Typography variant="h1">React Wipes</Typography>
       <Typography variant="h2">Github</Typography>
-      <a
+      <TransitionLink
         className="App-link"
-        href="https://github.com/rhigdon/react-wipes"
-        to=""
-        rel="noopener noreferrer"
-        target="_blank"
-      >https://github.com/rhigdon/react-wipes</a>
+        to="https://github.com/rhigdon/react-wipes"
+      >https://github.com/rhigdon/react-wipes</TransitionLink>
       <Typography variant="h2">Install</Typography>
-      <Typography variant="subtitle1">npm install react-wipes</Typography>
-      <Typography variant="h2">Usage</Typography>
-      <Typography variant="subtitle1">Internal Links / External Links</Typography>
+      <Typography variant="h3">npm i react-wipes</Typography>
       <Typography variant="h2">Examples</Typography>
       <AppLink to="vertical">Vertical</AppLink>
       <AppLink to="split-vertical">Split Vertical</AppLink>
@@ -112,7 +107,6 @@ function Home() {
       {/**
         <Link className="App-link" to="/next">Matrix</Link>
         <Link className="App-link" to="/next">Heart</Link>
-        <Link className="App-link" to="/next">Clock Wipe</Link>
       */}
       <Box m={5}>
         <Grid container alignItems="baseline" justify="center" spacing={1}>
@@ -121,6 +115,7 @@ function Home() {
           </Grid>
           <Grid item>
             <TransitionLink
+              overlay="scale"
               className="App-link"
               to="https://ryanhigdon.com"
             >Ryan Higdon</TransitionLink>

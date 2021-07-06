@@ -1,29 +1,14 @@
 import React from 'react';
 import {anime} from "react-anime";
+import {Overlay as BaseOverlay} from './Overlay'
 
-function OpenFrame(props) {
-  const [isVisible, setIsVisible] = React.useState(true)
-  React.useEffect(()=>{
-    let timeout = setTimeout(()=>{
-      setIsVisible(false)
-    }, 1000)
-    return ()=>{
-      clearTimeout(timeout)
-    };
-  },[])
+export function Overlay(props) {
   return (
-    <div style={{
-      display: isVisible ? "block" : "none",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      overflow: "hidden",
-      top: 0,
-    }}>
+    <BaseOverlay {...props}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
         <Screen direction={props.direction}/>
       </div>
-    </div>
+    </BaseOverlay>
   )
 }
 function Screen(props) {
@@ -52,14 +37,14 @@ function Screen(props) {
 }
 export function HorizontalWipe({children, direction}){
   return (
-    <div className="App-header">
-      <OpenFrame direction={direction}/>
+    <div>
+      <Overlay start={true} direction={direction}/>
       {children}
     </div>
   )
 }
 
-export const withHorzontalWipe = Component => ({...props}) => {
+export const withHorizontalWipe = Component => ({...props}) => {
   return (
     <HorizontalWipe>
       <Component {...props} />
