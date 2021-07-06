@@ -1,3 +1,5 @@
+import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import React from 'react';
 import {
@@ -18,6 +20,7 @@ import {
   VerticalWipe
 } from 'react-wipes/dist'
 import {withBounceWipe} from './lib/src/BounceWipe'
+import {TransitionLink} from './lib/src/TransitionLink'
 
 function App() {
   return (
@@ -81,7 +84,13 @@ function Home() {
     <div className="App-header">
       <Typography variant="h1">React Wipes</Typography>
       <Typography variant="h2">Github</Typography>
-      <a href="https://github.com/rhigdon/react-wipes" rel="noopener noreferrer" target="_blank">https://github.com/rhigdon/react-wipes</a>
+      <a
+        className="App-link"
+        href="https://github.com/rhigdon/react-wipes"
+        to=""
+        rel="noopener noreferrer"
+        target="_blank"
+      >https://github.com/rhigdon/react-wipes</a>
       <Typography variant="h2">Install</Typography>
       <Typography variant="subtitle1">npm install react-wipes</Typography>
       <Typography variant="h2">Usage</Typography>
@@ -105,6 +114,14 @@ function Home() {
         <Link className="App-link" to="/next">Heart</Link>
         <Link className="App-link" to="/next">Clock Wipe</Link>
       */}
+      <Box m={5}>
+        <Grid container alignItems="center">
+          <Typography>Made with ❤ by</Typography>
+          <TransitionLink
+            className="App-link"
+            to="https://ryanhigdon.com">www.ryanhigdon.com</TransitionLink>
+        </Grid>
+      </Box>
     </div>
   )
 }

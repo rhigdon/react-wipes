@@ -9,10 +9,10 @@
     "@testing-library/user-event": "^7.1.2",
     "animejs": "^3.2.0",
     "react": "^16.13.1",
-    "react-anime": "^3.0.3",
+    "react-anime": "^3.0.3"
   },
   "scripts": {
-    "build": "npx babel src --out-dir dist",
+    "build": "npx babel src --out-dir dist"
   },
   "eslintConfig": {
     "extends": "react-app"
