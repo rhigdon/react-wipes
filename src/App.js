@@ -9,6 +9,7 @@ import {
 import './App.css';
 import {
   BounceWipe,
+  ClockWipe,
   DiagonalWipe,
   HorizontalWipe,
   ScaleWipe,
@@ -16,7 +17,7 @@ import {
   SplitVerticalWipe,
   StarWipe,
   VerticalWipe,
-} from './lib'
+} from 'react-wipes/dist'
 
 function App() {
   return (
@@ -67,6 +68,11 @@ function App() {
               <Home />
             </BounceWipe>
           </Route>
+          <Route path="/clock-wipe">
+            <ClockWipe>
+              <Home />
+            </ClockWipe>
+          </Route>
           <Route path="/">
             <Home />
           </Route>
@@ -97,6 +103,7 @@ function Home() {
       <AppLink to="star-wipe">Star Wipe</AppLink>
       <AppLink to="split-horizontal">Split Horizontal</AppLink>
       <AppLink to="bounce">Bounce</AppLink>
+      <AppLink to="clock-wipe">Clock Wipe</AppLink>
       {/**
         <Link className="App-link" to="/next">Matrix</Link>
         <Link className="App-link" to="/next">Heart</Link>

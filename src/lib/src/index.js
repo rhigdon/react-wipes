@@ -1,4 +1,5 @@
 export {BounceWipe} from './BounceWipe'
+export {ClockWipe} from './ClockWipe'
 export {DiagonalWipe} from './DiagonalWipe'
 export {HorizontalWipe} from './HorizontalWipe'
 export {ScaleWipe} from './ScaleWipe'
