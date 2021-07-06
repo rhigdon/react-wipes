@@ -3,16 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.HorizontalWipe = HorizontalWipe;
-exports.withHorzontalWipe = void 0;
+exports.TransitionLink = TransitionLink;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactAnime = require("react-anime");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -26,81 +21,81 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function OpenFrame(props) {
-  var _React$useState = _react.default.useState(true),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      isVisible = _React$useState2[0],
-      setIsVisible = _React$useState2[1];
+function Overlay(_ref) {
+  var start = _ref.start,
+      onFinish = _ref.onFinish;
 
   _react.default.useEffect(function () {
+    if (!start) return;
     var timeout = setTimeout(function () {
-      setIsVisible(false);
-    }, 1000);
+      onFinish();
+    }, 900);
     return function () {
       clearTimeout(timeout);
     };
-  }, []);
+  }, [start, onFinish]);
 
   return /*#__PURE__*/_react.default.createElement("div", {
     style: {
-      display: isVisible ? "block" : "none",
+      display: start ? "block" : "none",
       position: "absolute",
       width: "100%",
       height: "100%",
-      overflow: "hidden",
-      top: 0
+      top: 0,
+      left: 0
     }
   }, /*#__PURE__*/_react.default.createElement("div", {
     style: {
-      display: "flex",
       width: "100%",
-      height: "100%"
-    }
-  }, /*#__PURE__*/_react.default.createElement(Screen, {
-    direction: props.direction
-  })));
-}
-
-function Screen(props) {
-  var ref = _react.default.useRef(null);
-
-  _react.default.useEffect(function () {
-    var basicTimeline = _reactAnime.anime.timeline();
-
-    basicTimeline.add({
-      targets: ref.current,
-      translateX: props.direction ? "-=".concat(window.innerWidth) : "".concat(window.innerWidth, "px"),
-      duration: 1000,
-      easing: "easeInOutSine"
-    });
-  }, [ref, props]);
-
-  return /*#__PURE__*/_react.default.createElement("div", {
-    ref: ref,
+      background: '#0b556a'
+    },
+    className: "vertical"
+  }), /*#__PURE__*/_react.default.createElement("div", {
     style: {
+      background: '#0b556a',
       width: "100%",
-      height: "100%",
-      backgroundColor: "#61dafb"
+      transition: "height 1s"
     }
-  });
+  }), /*#__PURE__*/_react.default.createElement(Shape, null));
 }
 
-function HorizontalWipe(_ref) {
-  var children = _ref.children,
-      direction = _ref.direction;
+function TransitionLink(_ref2) {
+  var className = _ref2.className,
+      children = _ref2.children,
+      to = _ref2.to;
+
+  var _React$useState = _react.default.useState(false),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      start = _React$useState2[0],
+      setStart = _React$useState2[1];
+
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "App-header"
-  }, /*#__PURE__*/_react.default.createElement(OpenFrame, {
-    direction: direction
-  }), children);
+    style: {
+      cursor: 'pointer'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Overlay, {
+    start: start,
+    onFinish: function onFinish() {
+      window.open(to, '_blank');
+      setStart(false);
+    }
+  }), /*#__PURE__*/_react.default.createElement("a", {
+    className: className,
+    href: to,
+    onClick: function onClick(e) {
+      setStart(true);
+      e.preventDefault();
+    }
+  }, children));
 }
 
-var withHorzontalWipe = function withHorzontalWipe(Component) {
-  return function (_ref2) {
-    var props = _extends({}, _ref2);
-
-    return /*#__PURE__*/_react.default.createElement(HorizontalWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
-  };
-};
-
-exports.withHorzontalWipe = withHorzontalWipe;
+function Shape() {
+  return /*#__PURE__*/_react.default.createElement("svg", {
+    className: "shape",
+    preserveAspectRatio: "none",
+    viewBox: "0 0 1440 100",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M -44,-50 C -52.71,28.52 15.86,8.186 184,14.69 383.3,22.39 462.5,12.58 638,14 835.5,15.6 987,6.4 1194,13.86 1661,30.68 1652,-36.74 1582,-140.1 1512,-243.5 15.88,-589.5 -44,-50 Z"
+  }));
+}

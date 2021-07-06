@@ -4,10 +4,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.SplitHorizontalWipe = SplitHorizontalWipe;
+exports.withSplitHorizontalWipe = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -27,9 +30,9 @@ function OpenFrame(props) {
       isVisible = _React$useState2[0],
       setIsVisible = _React$useState2[1];
 
-  var leftRef = /*#__PURE__*/_react.default.createRef(null);
+  var leftRef = _react.default.createRef(null);
 
-  var rightRef = /*#__PURE__*/_react.default.createRef(null);
+  var rightRef = _react.default.createRef(null);
 
   _react.default.useEffect(function () {
     var timeout = setTimeout(function () {
@@ -109,3 +112,13 @@ function SplitHorizontalWipe(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(OpenFrame, null), children);
 }
+
+var withSplitHorizontalWipe = function withSplitHorizontalWipe(Component) {
+  return function (_ref2) {
+    var props = _extends({}, _ref2);
+
+    return /*#__PURE__*/_react.default.createElement(SplitHorizontalWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+  };
+};
+
+exports.withSplitHorizontalWipe = withSplitHorizontalWipe;

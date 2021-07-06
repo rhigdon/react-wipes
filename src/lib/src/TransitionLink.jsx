@@ -3,9 +3,6 @@ import React from "react"
 function Overlay({start, onFinish}) {
   React.useEffect(() => {
     if (!start) return
-    console.log(
-      'hey ho lets go'
-    )
     let timeout = setTimeout(()=>{
       onFinish()
     }, 900)
@@ -41,14 +38,18 @@ function Overlay({start, onFinish}) {
   )
 }
 
-export function TransitionLink({children, to}){
+export function TransitionLink({className, children, to}){
   const [start, setStart] = React.useState(false)
   return (
     <div style={{cursor:'pointer'}}>
       <Overlay start={start} onFinish={()=>{
         window.open(to, '_blank');
+        setStart(false)
       }} />
-      <a className="App-link" onClick={()=>setStart(true)}>
+      <a className={className} href={to} onClick={(e)=>{
+        setStart(true)
+        e.preventDefault()
+      }}>
         {children}
       </a>
     </div>

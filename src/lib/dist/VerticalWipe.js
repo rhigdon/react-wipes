@@ -4,10 +4,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.VerticalWipe = VerticalWipe;
+exports.withVerticalWipe = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -74,3 +77,13 @@ function Shape() {
     d: "M -44,-50 C -52.71,28.52 15.86,8.186 184,14.69 383.3,22.39 462.5,12.58 638,14 835.5,15.6 987,6.4 1194,13.86 1661,30.68 1652,-36.74 1582,-140.1 1512,-243.5 15.88,-589.5 -44,-50 Z"
   }));
 }
+
+var withVerticalWipe = function withVerticalWipe(Component) {
+  return function (_ref2) {
+    var props = _extends({}, _ref2);
+
+    return /*#__PURE__*/_react.default.createElement(VerticalWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+  };
+};
+
+exports.withVerticalWipe = withVerticalWipe;

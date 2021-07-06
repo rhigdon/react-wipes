@@ -19,8 +19,8 @@ import {
   StarWipe,
   VerticalWipe
 } from 'react-wipes/dist'
-import {withBounceWipe} from './lib/src/BounceWipe'
-import {TransitionLink} from './lib/src/TransitionLink'
+import {withBounceWipe} from 'react-wipes/dist'
+import {TransitionLink} from 'react-wipes/dist'
 
 function App() {
   return (
@@ -115,11 +115,16 @@ function Home() {
         <Link className="App-link" to="/next">Clock Wipe</Link>
       */}
       <Box m={5}>
-        <Grid container alignItems="center">
-          <Typography>Made with ❤ by</Typography>
-          <TransitionLink
-            className="App-link"
-            to="https://ryanhigdon.com">www.ryanhigdon.com</TransitionLink>
+        <Grid container alignItems="baseline" justify="center" spacing={1}>
+          <Grid item>
+            <Typography>Made with ❤ by</Typography>
+          </Grid>
+          <Grid item>
+            <TransitionLink
+              className="App-link"
+              to="https://ryanhigdon.com"
+            >Ryan Higdon</TransitionLink>
+          </Grid>
         </Grid>
       </Box>
     </div>

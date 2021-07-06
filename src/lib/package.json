@@ -1,7 +1,10 @@
 {
   "name": "react-wipes",
+  "author": "Ryan Higdon",
+  "license": "MIT",
   "homepage": "https://rhigdon.github.io/react-wipes",
-  "version": "0.0.3",
+  "version": "0.0.5",
+  "keywords": ["transitions", "interstitials"],
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -12,7 +15,9 @@
     "react-anime": "^3.0.3"
   },
   "scripts": {
-    "build": "npx babel src --out-dir dist"
+    "build": "npx babel src --out-dir dist",
+    "prepublish": "yarn build",
+    "publish": "npm publish"
   },
   "eslintConfig": {
     "extends": "react-app"
