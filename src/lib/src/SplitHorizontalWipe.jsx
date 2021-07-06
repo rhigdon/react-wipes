@@ -1,5 +1,6 @@
 import React from 'react';
 import {Overlay as BaseOverlay} from './Overlay'
+import './SplitHorizontalWipe.css'
 
 export function Overlay(props) {
   const leftRef = React.createRef(null)

@@ -1,0 +1,14 @@
+.vertical, .split-vertical {
+  animation: shrinkHeight infinite 1.1s linear;
+}
+.shape {
+  fill: #0b556a;
+}
+@keyframes shrinkHeight {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
+}

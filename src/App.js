@@ -91,6 +91,9 @@ function Home() {
       <Typography variant="h2">Install</Typography>
       <Typography variant="h3">npm i react-wipes</Typography>
       <Typography variant="h2">Examples</Typography>
+      <AppLink to="clock-wipe">Clock Wipe</AppLink>
+      <AppLink to="star-wipe">Star Wipe</AppLink>
+      <AppLink to="scale-up">Scale Up</AppLink>
       <AppLink to="vertical">Vertical</AppLink>
       <AppLink to="split-vertical">Split Vertical</AppLink>
       <AppLink to="diagonal">Diagonal</AppLink>
@@ -99,11 +102,8 @@ function Home() {
       */}
       <AppLink to="horizontal">Horizontal</AppLink>
       <AppLink to="horizontal-reverse">Horizontal Reverse</AppLink>
-      <AppLink to="scale-up">Scale Up</AppLink>
-      <AppLink to="star-wipe">Star Wipe</AppLink>
       <AppLink to="split-horizontal">Split Horizontal</AppLink>
       <AppLink to="bounce">Bounce</AppLink>
-      <AppLink to="clock-wipe">Clock Wipe</AppLink>
       {/**
         <Link className="App-link" to="/next">Matrix</Link>
         <Link className="App-link" to="/next">Heart</Link>

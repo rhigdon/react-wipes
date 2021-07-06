@@ -12,7 +12,7 @@ export function Overlay({children, start, onFinish, timeout}) {
       }
       setIsVisible(false)
     }, timeout ? timeout : 900)
-    return ()=>{
+    return () => {
       clearTimeout(_timeout)
     };
   }, [start, onFinish, timeout])

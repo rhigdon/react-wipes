@@ -1,4 +1,5 @@
 import React from "react";
+import './VerticalWipe.css'
 
 export function Overlay({start, onFinish}) {
   React.useEffect(() => {

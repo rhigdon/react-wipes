@@ -3,7 +3,7 @@
   "author": "Ryan Higdon",
   "license": "MIT",
   "homepage": "https://rhigdon.github.io/react-wipes",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "keywords": [
     "transitions",
     "interstitials"
@@ -14,7 +14,7 @@
     "react-anime": "^3.0.3"
   },
   "scripts": {
-    "build": "npx babel src --out-dir dist",
+    "build": "npx babel src --out-dir dist && cp ./src/*.css ./dist",
     "prepublish": "yarn build",
     "publish": "npm publish"
   },
