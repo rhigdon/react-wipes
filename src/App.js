@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import './App.css';
 import {
-  BounceWipe,
   ClockWipe,
   DiagonalWipe,
   HorizontalWipe,
@@ -16,8 +15,9 @@ import {
   SplitHorizontalWipe,
   SplitVerticalWipe,
   StarWipe,
-  VerticalWipe,
+  VerticalWipe
 } from 'react-wipes/dist'
+import {withBounceWipe} from './lib/src/BounceWipe'
 
 function App() {
   return (
@@ -63,11 +63,7 @@ function App() {
                 <Home />
               </StarWipe>
           </Route>
-          <Route path="/bounce">
-            <BounceWipe>
-              <Home />
-            </BounceWipe>
-          </Route>
+          <Route component={withBounceWipe(Home)} path="/bounce" />
           <Route path="/clock-wipe">
             <ClockWipe>
               <Home />

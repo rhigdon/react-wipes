@@ -47,3 +47,10 @@ export function DiagonalWipe({children}){
     </div>
   )
 }
+export const withDiagonalWipe = Component => ({...props}) => {
+  return (
+    <DiagonalWipe>
+      <Component {...props} />
+    </DiagonalWipe>
+  )
+}

@@ -1,7 +1,7 @@
 {
   "name": "react-wipes",
   "homepage": "https://rhigdon.github.io/react-wipes",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -10,13 +10,9 @@
     "animejs": "^3.2.0",
     "react": "^16.13.1",
     "react-anime": "^3.0.3",
-    "react-scripts": "^3.4.2"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "npx babel src --out-dir dist",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

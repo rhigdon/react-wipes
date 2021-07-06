@@ -47,3 +47,10 @@ export let BounceWipe = (props) => {
         </div>
     )
 }
+export const withBounceWipe = Component => ({...props}) => {
+  return (
+    <BounceWipe>
+      <Component {...props} />
+    </BounceWipe>
+  )
+}

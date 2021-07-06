@@ -65,3 +65,11 @@ export function ClockWipe({children}){
     </div>
   )
 }
+
+export const withClockWipe = Component => ({...props}) => {
+  return (
+    <ClockWipe>
+      <Component {...props} />
+    </ClockWipe>
+  )
+}

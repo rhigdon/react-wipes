@@ -43,3 +43,11 @@ export function ScaleWipe({children}){
     </div>
   )
 }
+
+export const withScaleWipe = Component => ({...props}) => {
+  return (
+    <ScaleWipe>
+      <Component {...props} />
+    </ScaleWipe>
+  )
+}

@@ -65,3 +65,11 @@ export function SplitVerticalWipe({children}){
     </div>
   )
 }
+
+export const withSplitVerticalWipe = Component => ({...props}) => {
+  return (
+    <SplitVerticalWipe>
+      <Component {...props} />
+    </SplitVerticalWipe>
+  )
+}

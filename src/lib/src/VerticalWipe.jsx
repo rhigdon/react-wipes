@@ -58,3 +58,11 @@ function Shape (){
     </svg>
   )
 }
+
+export const withVerticalWipe = Component => ({...props}) => {
+  return (
+    <VerticalWipe>
+      <Component {...props} />
+    </VerticalWipe>
+  )
+}

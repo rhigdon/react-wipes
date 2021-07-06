@@ -86,3 +86,11 @@ export function SplitHorizontalWipe({children}){
     </div>
   )
 }
+
+export const withSplitHorizontalWipe = Component => ({...props}) => {
+  return (
+    <SplitHorizontalWipe>
+      <Component {...props} />
+    </SplitHorizontalWipe>
+  )
+}

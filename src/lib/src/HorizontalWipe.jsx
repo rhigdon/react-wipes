@@ -58,3 +58,11 @@ export function HorizontalWipe({children, direction}){
     </div>
   )
 }
+
+export const withHorzontalWipe = Component => ({...props}) => {
+  return (
+    <HorizontalWipe>
+      <Component {...props} />
+    </HorizontalWipe>
+  )
+}

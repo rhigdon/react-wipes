@@ -64,3 +64,11 @@ export function StarWipe({children}){
     </div>
   )
 }
+
+export const withStarWipe = Component => ({...props}) => {
+  return (
+    <StarWipe>
+      <Component {...props} />
+    </StarWipe>
+  )
+}
