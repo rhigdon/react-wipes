@@ -82,7 +82,7 @@ function App() {
 function Home() {
   return (
     <div className="App-header">
-      <Typography variant="h1">React Wipes</Typography>
+      <Typography variant="h1"><img width="75px" src="/react-wipes/cinema_icon.svg"/>React Wipes</Typography>
       <Typography variant="h2">Github</Typography>
       <TransitionLink
         className="App-link"
