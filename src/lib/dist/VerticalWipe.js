@@ -11,6 +11,8 @@ var _react = _interopRequireDefault(require("react"));
 
 require("./VerticalWipe.css");
 
+var _Overlay = require("./Overlay");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -28,48 +30,32 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Overlay(_ref) {
-  var start = _ref.start,
+  var color = _ref.color,
+      start = _ref.start,
       onFinish = _ref.onFinish;
-
-  _react.default.useEffect(function () {
-    if (!start) return;
-    var timeout = setTimeout(function () {
-      if (onFinish) {
-        onFinish();
-      }
-    }, 900);
-    return function () {
-      clearTimeout(timeout);
-    };
-  }, [start, onFinish]);
-
-  return /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      display: start ? "block" : "none",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      overflow: "hidden",
-      top: 0,
-      left: 0
-    }
+  return /*#__PURE__*/_react.default.createElement(_Overlay.Overlay, {
+    start: start,
+    onFinish: onFinish
   }, /*#__PURE__*/_react.default.createElement("div", {
     style: {
       width: "100%",
-      background: '#0b556a'
+      background: color ? color : '#0b556a'
     },
     className: "vertical"
   }), /*#__PURE__*/_react.default.createElement("div", {
     style: {
-      background: '#0b556a',
+      background: color ? color : '#0b556a',
       width: "100%",
       transition: "height 1s"
     }
-  }), /*#__PURE__*/_react.default.createElement(Shape, null));
+  }), /*#__PURE__*/_react.default.createElement(Shape, {
+    color: color
+  }));
 }
 
 function VerticalWipe(_ref2) {
-  var children = _ref2.children;
+  var color = _ref2.color,
+      children = _ref2.children;
 
   var _React$useState = _react.default.useState(true),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -77,6 +63,7 @@ function VerticalWipe(_ref2) {
       setStart = _React$useState2[1];
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    color: color,
     start: start,
     onFinish: function onFinish() {
       return setStart(false);
@@ -84,22 +71,26 @@ function VerticalWipe(_ref2) {
   }), children);
 }
 
-function Shape() {
+function Shape(_ref3) {
+  var color = _ref3.color;
   return /*#__PURE__*/_react.default.createElement("svg", {
     className: "shape",
     preserveAspectRatio: "none",
     viewBox: "0 0 1440 100",
     xmlns: "http://www.w3.org/2000/svg"
   }, /*#__PURE__*/_react.default.createElement("path", {
+    fill: color,
     d: "M -44,-50 C -52.71,28.52 15.86,8.186 184,14.69 383.3,22.39 462.5,12.58 638,14 835.5,15.6 987,6.4 1194,13.86 1661,30.68 1652,-36.74 1582,-140.1 1512,-243.5 15.88,-589.5 -44,-50 Z"
   }));
 }
 
-var withVerticalWipe = function withVerticalWipe(Component) {
-  return function (_ref3) {
-    var props = _extends({}, _ref3);
+var withVerticalWipe = function withVerticalWipe(Component, color) {
+  return function (_ref4) {
+    var props = _extends({}, _ref4);
 
-    return /*#__PURE__*/_react.default.createElement(VerticalWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+    return /*#__PURE__*/_react.default.createElement(VerticalWipe, {
+      color: color
+    }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };
 

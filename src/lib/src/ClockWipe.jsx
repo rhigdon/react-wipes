@@ -1,16 +1,16 @@
 import React from 'react';
 import {Overlay as BaseOverlay} from './Overlay'
 
-function Overlay(props) {
+export function Overlay(props) {
   return (
     <BaseOverlay {...props}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
-        <CircleShape />
+        <CircleShape color={props.color} />
       </div>
     </BaseOverlay>
   )
 }
-function CircleShape() {
+function CircleShape({color}) {
   let style = { position:"fixed", top:0, bottom:0, left:0, right:0, transform: 'scale(3.3)' };
   let ref = React.useRef(null)
   React.useEffect(()=>{
@@ -38,23 +38,23 @@ function CircleShape() {
       style={style}
       >
       <circle cx="-183" cy="500" r="57" id="green-halo" fill="none"
-        stroke="#0b556a" strokeWidth="115" strokeDasharray="0,20000"
+        stroke={`${color ? color : '#0b556a'}`} strokeWidth="115" strokeDasharray="0,20000"
         transform="rotate(-90,100,100)" />
      </svg>
   )
 }
-export function ClockWipe({children}){
+export function ClockWipe({color, children}){
   return (
     <div>
-      <Overlay start={true} timeout={2000}/>
+      <Overlay color={color} start={true} timeout={2000}/>
       {children}
     </div>
   )
 }
 
-export const withClockWipe = Component => ({...props}) => {
+export const withClockWipe = (Component, color) => ({...props}) => {
   return (
-    <ClockWipe>
+    <ClockWipe color={color}>
       <Component {...props} />
     </ClockWipe>
   )

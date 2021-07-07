@@ -3,6 +3,7 @@ import Anime, {anime} from "react-anime";
 import {Overlay as BaseOverlay} from './Overlay'
 
 export function Overlay(props) {
+  const {color} = props
   return (
     <BaseOverlay {...props}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
@@ -11,7 +12,7 @@ export function Overlay(props) {
                scale={[0, 1]}
         >
           <div style={{
-            background: "#0b556a",
+            background: color ? color : "#0b556a",
             width: window.innerWidth,
             height: window.innerHeight
           }}/>
@@ -20,10 +21,10 @@ export function Overlay(props) {
     </BaseOverlay>
   )
 }
-export function ScaleWipe({children}){
+export function ScaleWipe({color, children}){
   return (
     <div>
-      <Overlay start={true}/>
+      <Overlay color={color} start={true}/>
       {children}
     </div>
   )

@@ -62,6 +62,7 @@ function TransitionLink(_ref) {
   var className = _ref.className,
       children = _ref.children,
       overlay = _ref.overlay,
+      style = _ref.style,
       to = _ref.to;
 
   var _React$useState = _react.default.useState(false),
@@ -75,13 +76,20 @@ function TransitionLink(_ref) {
       cursor: 'pointer'
     }
   }, start && /*#__PURE__*/_react.default.createElement(Overlay, {
+    color: style.color ? style.color : '',
     start: start,
     onFinish: function onFinish() {
-      window.open(to, '_blank');
+      var open = window.open(to, '_blank');
+
+      if (!open) {
+        window.location.assign(to);
+      }
+
       setStart(false);
     }
   }), /*#__PURE__*/_react.default.createElement("a", {
     className: className,
+    style: style,
     href: to,
     onClick: function onClick(e) {
       setStart(true);

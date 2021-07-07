@@ -25,11 +25,14 @@ function Overlay(props) {
       height: "100%"
     }
   }, /*#__PURE__*/_react.default.createElement(Screen, {
+    color: props.color,
     direction: props.direction
   })));
 }
 
 function Screen(props) {
+  var color = props.color;
+
   var ref = _react.default.useRef(null);
 
   _react.default.useEffect(function () {
@@ -48,25 +51,29 @@ function Screen(props) {
     style: {
       width: "100%",
       height: "100%",
-      backgroundColor: "#61dafb"
+      backgroundColor: color ? color : "#61dafb"
     }
   });
 }
 
 function HorizontalWipe(_ref) {
-  var children = _ref.children,
+  var color = _ref.color,
+      children = _ref.children,
       direction = _ref.direction;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    color: color,
     start: true,
     direction: direction
   }), children);
 }
 
-var withHorizontalWipe = function withHorizontalWipe(Component) {
+var withHorizontalWipe = function withHorizontalWipe(Component, color) {
   return function (_ref2) {
     var props = _extends({}, _ref2);
 
-    return /*#__PURE__*/_react.default.createElement(HorizontalWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+    return /*#__PURE__*/_react.default.createElement(HorizontalWipe, {
+      color: color
+    }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };
 

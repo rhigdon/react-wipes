@@ -3,7 +3,6 @@ import React from 'react'
 export function Overlay({children, start, onFinish, timeout}) {
   const [isVisible, setIsVisible] = React.useState(true)
   const [top, setTop] = React.useState(parseInt(window.scrollY, 10))
-  const ref = React.createRef(null)
   React.useEffect(() => {
     if (!start) return
     let _timeout = setTimeout(()=>{
@@ -18,9 +17,9 @@ export function Overlay({children, start, onFinish, timeout}) {
   }, [start, onFinish, timeout])
   React.useEffect(() => {
     setTop(parseInt(window.scrollY, 10))
-  }, [ref])
+  }, [])
   return (
-    <div ref={ref} style={{
+    <div style={{
       display: isVisible ? "block" : "none",
       position: "absolute",
       width: "100%",
@@ -28,6 +27,7 @@ export function Overlay({children, start, onFinish, timeout}) {
       top: top,
       left: 0,
       overflow: "hidden",
+      zIndex: 100,
     }}>
       {children}
     </div>

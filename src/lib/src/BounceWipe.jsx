@@ -3,7 +3,7 @@ import {anime} from 'react-anime';
 import {Overlay as BaseOverlay} from './Overlay'
 
 export let BounceWipe = (props) => {
-    const {children} = props
+    const {color, children} = props
     let ref = useRef(null);
     const [isVisible, setIsVisible] = useState(true);
 
@@ -34,16 +34,16 @@ export let BounceWipe = (props) => {
                     style={{
                         width: '100%',
                         height: '100%',
-                        backgroundColor: '#61dafb'
+                        backgroundColor: color ? color : '#61dafb',
                     }}></div>
             </div></BaseOverlay>
             {children}
         </div>
     )
 }
-export const withBounceWipe = Component => ({...props}) => {
+export const withBounceWipe = (Component, color) => ({...props}) => {
   return (
-    <BounceWipe>
+    <BounceWipe color={color}>
       <Component {...props} />
     </BounceWipe>
   )

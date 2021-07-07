@@ -26,18 +26,21 @@ function getOverlay(overlay) {
   }
 }
 
-export function TransitionLink({className, children, overlay, to}){
+export function TransitionLink({className, children, overlay, style, to}){
   const [start, setStart] = React.useState(false)
   const Overlay = overlay ? getOverlay(overlay) : VerticalWipeOverlay
   return (
     <div style={{cursor:'pointer'}}>
       {start && (
-        <Overlay start={start} onFinish={()=>{
-          window.open(to, '_blank');
+        <Overlay color={style.color ? style.color : ''} start={start} onFinish={()=>{
+          const open = window.open(to, '_blank');
+          if (!open) {
+            window.location.assign(to)
+          }
           setStart(false)
         }} />
       )}
-      <a className={className} href={to} onClick={(e)=>{
+      <a className={className} style={style} href={to} onClick={(e)=>{
         setStart(true)
         e.preventDefault()
       }}>

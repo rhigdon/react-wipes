@@ -32,7 +32,8 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var BounceWipe = function BounceWipe(props) {
-  var children = props.children;
+  var color = props.color,
+      children = props.children;
   var ref = (0, _react.useRef)(null);
 
   var _useState = (0, _react.useState)(true),
@@ -69,18 +70,20 @@ var BounceWipe = function BounceWipe(props) {
     style: {
       width: '100%',
       height: '100%',
-      backgroundColor: '#61dafb'
+      backgroundColor: color ? color : '#61dafb'
     }
   }))), children);
 };
 
 exports.BounceWipe = BounceWipe;
 
-var withBounceWipe = function withBounceWipe(Component) {
+var withBounceWipe = function withBounceWipe(Component, color) {
   return function (_ref) {
     var props = _extends({}, _ref);
 
-    return /*#__PURE__*/_react.default.createElement(BounceWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+    return /*#__PURE__*/_react.default.createElement(BounceWipe, {
+      color: color
+    }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };
 

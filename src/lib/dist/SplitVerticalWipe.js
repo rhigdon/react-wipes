@@ -16,6 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function Overlay(props) {
+  var color = props.color;
   return /*#__PURE__*/_react.default.createElement(_Overlay.Overlay, props, /*#__PURE__*/_react.default.createElement("div", {
     style: {
       position: "absolute",
@@ -27,7 +28,7 @@ function Overlay(props) {
     style: {
       height: "100%",
       width: "100%",
-      background: '#0b556a'
+      background: color ? color : '#0b556a'
     }
   })), /*#__PURE__*/_react.default.createElement("div", {
     style: {
@@ -47,24 +48,28 @@ function Overlay(props) {
     className: "split-vertical",
     style: {
       height: "100%",
-      background: '#0b556a',
+      background: color ? color : '#0b556a',
       width: "100%"
     }
   }))));
 }
 
 function SplitVerticalWipe(_ref) {
-  var children = _ref.children;
+  var children = _ref.children,
+      color = _ref.color;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    color: color,
     start: true
   }), children);
 }
 
-var withSplitVerticalWipe = function withSplitVerticalWipe(Component) {
+var withSplitVerticalWipe = function withSplitVerticalWipe(Component, color) {
   return function (_ref2) {
     var props = _extends({}, _ref2);
 
-    return /*#__PURE__*/_react.default.createElement(SplitVerticalWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+    return /*#__PURE__*/_react.default.createElement(SplitVerticalWipe, {
+      color: color
+    }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };
 

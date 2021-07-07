@@ -3,6 +3,7 @@ import {Overlay as BaseOverlay} from './Overlay'
 import './SplitHorizontalWipe.css'
 
 export function Overlay(props) {
+  const {color} = props
   const leftRef = React.createRef(null)
   const rightRef = React.createRef(null)
   React.useEffect(()=>{
@@ -31,7 +32,7 @@ export function Overlay(props) {
           style={{
             height: `100%`,
             width: `100%`,
-            background: '#0b556a',
+            background: color ? color : '#0b556a',
             transition: "height 1s, width 1s",
           }}
         />
@@ -54,9 +55,8 @@ export function Overlay(props) {
             className="split-horizontal"
             style={{
               height: `100%`,
-              background: '#0b556a',
+              background: color ? color : '#0b556a',
               width: `100%`,
-              //transition: "height 1s, width 1s",
             }}
           />
         </div>
@@ -64,18 +64,18 @@ export function Overlay(props) {
     </BaseOverlay>
   )
 }
-export function SplitHorizontalWipe({children}){
+export function SplitHorizontalWipe({color, children}){
   return (
     <div>
-      <Overlay start={true}/>
+      <Overlay color={color} start={true}/>
       {children}
     </div>
   )
 }
 
-export const withSplitHorizontalWipe = Component => ({...props}) => {
+export const withSplitHorizontalWipe = (Component, color) => ({...props}) => {
   return (
-    <SplitHorizontalWipe>
+    <SplitHorizontalWipe color={color}>
       <Component {...props} />
     </SplitHorizontalWipe>
   )

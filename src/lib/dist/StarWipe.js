@@ -24,10 +24,13 @@ function Overlay(props) {
       width: "100%",
       height: "100%"
     }
-  }, /*#__PURE__*/_react.default.createElement(StarCutout, null)));
+  }, /*#__PURE__*/_react.default.createElement(StarCutout, {
+    color: props.color
+  })));
 }
 
-function StarCutout() {
+function StarCutout(_ref) {
+  var color = _ref.color;
   var style = {
     position: "fixed",
     top: 0,
@@ -60,27 +63,29 @@ function StarCutout() {
     style: style
   }, /*#__PURE__*/_react.default.createElement("path", {
     d: "M.5,767.5V.5h1023v767ZM540.55,436.78l-7-48.89,36.31-33.47L521.21,346,500.6,301.08l-23.08,43.66-49,5.74,34.39,35.44-9.7,48.42,44.33-21.75Z",
-    fill: "#fff"
+    fill: color ? color : "#fff"
   }), /*#__PURE__*/_react.default.createElement("path", {
-    fill: "#61dafb",
+    fill: color ? color : "#61dafb",
     d: "M1023,1V767H1V1H1023M477.2,344.28l-47.78,5.58-2,.24,1.41,1.45,33.5,34.53-9.45,47.17-.4,2,1.82-.9,43.19-21.19,41.94,23.57,1.76,1-.28-2-6.81-47.63,35.37-32.6L571,354.1l-2-.34-47.4-8.25L501.48,301.8l-.85-1.85-.94,1.8L477.2,344.28M1024,0H0V768H1024V0ZM453.85,433.45l9.55-47.69-33.87-34.9,48.31-5.65,22.73-43,20.3,44.2,47.91,8.33L533,387.7l6.88,48.15L497.51,412l-43.66,21.43Z"
   }));
 }
 
-function StarWipe(_ref) {
-  var children = _ref.children;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "App-header"
-  }, /*#__PURE__*/_react.default.createElement(Overlay, {
+function StarWipe(_ref2) {
+  var color = _ref2.color,
+      children = _ref2.children;
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    color: color,
     start: true
   }), children);
 }
 
-var withStarWipe = function withStarWipe(Component) {
-  return function (_ref2) {
-    var props = _extends({}, _ref2);
+var withStarWipe = function withStarWipe(Component, color) {
+  return function (_ref3) {
+    var props = _extends({}, _ref3);
 
-    return /*#__PURE__*/_react.default.createElement(StarWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+    return /*#__PURE__*/_react.default.createElement(StarWipe, {
+      color: color
+    }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };
 

@@ -18,6 +18,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function Overlay(props) {
+  var color = props.color;
+
   var leftRef = _react.default.createRef(null);
 
   var rightRef = _react.default.createRef(null);
@@ -49,7 +51,7 @@ function Overlay(props) {
     style: {
       height: "100%",
       width: "100%",
-      background: '#0b556a',
+      background: color ? color : '#0b556a',
       transition: "height 1s, width 1s"
     }
   })), /*#__PURE__*/_react.default.createElement("div", {
@@ -72,25 +74,28 @@ function Overlay(props) {
     className: "split-horizontal",
     style: {
       height: "100%",
-      background: '#0b556a',
-      width: "100%" //transition: "height 1s, width 1s",
-
+      background: color ? color : '#0b556a',
+      width: "100%"
     }
   }))));
 }
 
 function SplitHorizontalWipe(_ref) {
-  var children = _ref.children;
+  var color = _ref.color,
+      children = _ref.children;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    color: color,
     start: true
   }), children);
 }
 
-var withSplitHorizontalWipe = function withSplitHorizontalWipe(Component) {
+var withSplitHorizontalWipe = function withSplitHorizontalWipe(Component, color) {
   return function (_ref2) {
     var props = _extends({}, _ref2);
 
-    return /*#__PURE__*/_react.default.createElement(SplitHorizontalWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+    return /*#__PURE__*/_react.default.createElement(SplitHorizontalWipe, {
+      color: color
+    }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };
 

@@ -6,12 +6,13 @@ export function Overlay(props) {
   return (
     <BaseOverlay {...props}>
       <div style={{display:"flex", width: "100%", height: "100%"}}>
-        <Screen direction={props.direction}/>
+        <Screen color={props.color} direction={props.direction}/>
       </div>
     </BaseOverlay>
   )
 }
 function Screen(props) {
+  const {color} = props
   let ref = React.useRef(null)
   React.useEffect(()=>{
     var basicTimeline = anime.timeline();
@@ -30,23 +31,23 @@ function Screen(props) {
       style={{
         width: "100%",
         height: "100%",
-        backgroundColor: "#61dafb",
+        backgroundColor: color ? color : "#61dafb",
       }}
     ></div>
   )
 }
-export function HorizontalWipe({children, direction}){
+export function HorizontalWipe({color, children, direction}){
   return (
     <div>
-      <Overlay start={true} direction={direction}/>
+      <Overlay color={color} start={true} direction={direction}/>
       {children}
     </div>
   )
 }
 
-export const withHorizontalWipe = Component => ({...props}) => {
+export const withHorizontalWipe = (Component, color) => ({...props}) => {
   return (
-    <HorizontalWipe>
+    <HorizontalWipe color={color}>
       <Component {...props} />
     </HorizontalWipe>
   )

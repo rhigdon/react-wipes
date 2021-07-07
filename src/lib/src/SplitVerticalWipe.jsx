@@ -2,6 +2,7 @@ import React from 'react';
 import {Overlay as BaseOverlay} from './Overlay'
 
 export function Overlay(props) {
+  const {color} = props
   return (
     <BaseOverlay {...props}>
       <div style={{
@@ -14,7 +15,7 @@ export function Overlay(props) {
           style={{
             height: `100%`,
             width: `100%`,
-            background: '#0b556a',
+            background: color ? color : '#0b556a',
           }}
         />
       </div>
@@ -34,7 +35,7 @@ export function Overlay(props) {
             className="split-vertical"
             style={{
               height: `100%`,
-              background: '#0b556a',
+              background: color ? color : '#0b556a',
               width: `100%`,
             }}
           />
@@ -43,18 +44,18 @@ export function Overlay(props) {
     </BaseOverlay>
   )
 }
-export function SplitVerticalWipe({children}){
+export function SplitVerticalWipe({children, color}){
   return (
     <div>
-      <Overlay start={true}/>
+      <Overlay color={color} start={true}/>
       {children}
     </div>
   )
 }
 
-export const withSplitVerticalWipe = Component => ({...props}) => {
+export const withSplitVerticalWipe = (Component, color) => ({...props}) => {
   return (
-    <SplitVerticalWipe>
+    <SplitVerticalWipe color={color}>
       <Component {...props} />
     </SplitVerticalWipe>
   )

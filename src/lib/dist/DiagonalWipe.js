@@ -24,6 +24,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function Overlay(props) {
+  var color = props.color;
   return /*#__PURE__*/_react.default.createElement(_Overlay.Overlay, props, /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: "flex",
@@ -32,33 +33,37 @@ function Overlay(props) {
     }
   }, /*#__PURE__*/_react.default.createElement(_reactAnime.default, {
     delay: _reactAnime.anime.stagger(1000),
-    duration: 5000,
+    duration: 8000,
     translateX: -1400,
     translateY: -1400
   }, /*#__PURE__*/_react.default.createElement("div", {
     style: {
       transform: 'rotate(45deg)',
-      background: "#0b556a",
+      background: color ? color : "#0b556a",
       width: window.innerWidth,
       height: window.innerHeight * 2.5,
       position: "fixed",
-      top: "-50px"
+      top: "-350px"
     }
   }))));
 }
 
 function DiagonalWipe(_ref) {
-  var children = _ref.children;
+  var color = _ref.color,
+      children = _ref.children;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    color: color,
     start: true
   }), children);
 }
 
-var withDiagonalWipe = function withDiagonalWipe(Component) {
+var withDiagonalWipe = function withDiagonalWipe(Component, color) {
   return function (_ref2) {
     var props = _extends({}, _ref2);
 
-    return /*#__PURE__*/_react.default.createElement(DiagonalWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+    return /*#__PURE__*/_react.default.createElement(DiagonalWipe, {
+      color: color
+    }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };
 

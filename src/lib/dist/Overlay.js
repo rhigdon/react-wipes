@@ -37,8 +37,6 @@ function Overlay(_ref) {
       top = _React$useState4[0],
       setTop = _React$useState4[1];
 
-  var ref = _react.default.createRef(null);
-
   _react.default.useEffect(function () {
     if (!start) return;
 
@@ -57,10 +55,9 @@ function Overlay(_ref) {
 
   _react.default.useEffect(function () {
     setTop(parseInt(window.scrollY, 10));
-  }, [ref]);
+  }, []);
 
   return /*#__PURE__*/_react.default.createElement("div", {
-    ref: ref,
     style: {
       display: isVisible ? "block" : "none",
       position: "absolute",
@@ -68,7 +65,8 @@ function Overlay(_ref) {
       height: "100%",
       top: top,
       left: 0,
-      overflow: "hidden"
+      overflow: "hidden",
+      zIndex: 100
     }
   }, children);
 }

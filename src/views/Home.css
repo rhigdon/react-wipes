@@ -1,0 +1,29 @@
+.logo-icon {
+  animation: wiggle infinite 2s linear;
+}
+@keyframes wiggle {
+  0% {
+    transform: rotateX(5deg);
+  }
+  50% {
+    transform: rotateX(35deg);
+  }
+  100% {
+    transform: rotateX(5deg);
+  }
+}
+
+.right-logo-icon {
+  animation: wiggle2 infinite 2s linear;
+}
+@keyframes wiggle2 {
+  0% {
+    transform: rotateX(5deg) rotateY(180deg) ;
+  }
+  50% {
+    transform: rotateX(35deg) rotateY(180deg);
+  }
+  100% {
+    transform: rotateX(5deg) rotateY(180deg);
+  }
+}

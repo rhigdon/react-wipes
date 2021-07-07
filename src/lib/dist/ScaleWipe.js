@@ -24,6 +24,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function Overlay(props) {
+  var color = props.color;
   return /*#__PURE__*/_react.default.createElement(_Overlay.Overlay, props, /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: "flex",
@@ -36,7 +37,7 @@ function Overlay(props) {
     scale: [0, 1]
   }, /*#__PURE__*/_react.default.createElement("div", {
     style: {
-      background: "#0b556a",
+      background: color ? color : "#0b556a",
       width: window.innerWidth,
       height: window.innerHeight
     }
@@ -44,8 +45,10 @@ function Overlay(props) {
 }
 
 function ScaleWipe(_ref) {
-  var children = _ref.children;
+  var color = _ref.color,
+      children = _ref.children;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    color: color,
     start: true
   }), children);
 }

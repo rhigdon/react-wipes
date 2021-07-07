@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Overlay = Overlay;
 exports.ClockWipe = ClockWipe;
 exports.withClockWipe = void 0;
 
@@ -21,10 +22,13 @@ function Overlay(props) {
       width: "100%",
       height: "100%"
     }
-  }, /*#__PURE__*/_react.default.createElement(CircleShape, null)));
+  }, /*#__PURE__*/_react.default.createElement(CircleShape, {
+    color: props.color
+  })));
 }
 
-function CircleShape() {
+function CircleShape(_ref) {
+  var color = _ref.color;
   var style = {
     position: "fixed",
     top: 0,
@@ -67,26 +71,30 @@ function CircleShape() {
     r: "57",
     id: "green-halo",
     fill: "none",
-    stroke: "#0b556a",
+    stroke: "".concat(color ? color : '#0b556a'),
     strokeWidth: "115",
     strokeDasharray: "0,20000",
     transform: "rotate(-90,100,100)"
   }));
 }
 
-function ClockWipe(_ref) {
-  var children = _ref.children;
+function ClockWipe(_ref2) {
+  var color = _ref2.color,
+      children = _ref2.children;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    color: color,
     start: true,
     timeout: 2000
   }), children);
 }
 
-var withClockWipe = function withClockWipe(Component) {
-  return function (_ref2) {
-    var props = _extends({}, _ref2);
+var withClockWipe = function withClockWipe(Component, color) {
+  return function (_ref3) {
+    var props = _extends({}, _ref3);
 
-    return /*#__PURE__*/_react.default.createElement(ClockWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+    return /*#__PURE__*/_react.default.createElement(ClockWipe, {
+      color: color
+    }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };
 
