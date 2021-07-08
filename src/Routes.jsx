@@ -9,7 +9,7 @@ import {
   StarWipe,
   VerticalWipe,
   withBounceWipe,
-} from 'react-wipes/dist'
+} from 'react-wipes'
 import {
   HashRouter as Router,
   Switch,

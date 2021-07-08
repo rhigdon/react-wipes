@@ -20,9 +20,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 function Overlay(props) {
   var color = props.color;
 
-  var leftRef = _react.default.createRef(null);
+  var leftRef = /*#__PURE__*/_react.default.createRef(null);
 
-  var rightRef = _react.default.createRef(null);
+  var rightRef = /*#__PURE__*/_react.default.createRef(null);
 
   _react.default.useEffect(function () {
     if (leftRef && leftRef.current.style.width === "100%") {

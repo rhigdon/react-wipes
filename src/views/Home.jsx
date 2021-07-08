@@ -2,7 +2,8 @@ import React from 'react'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import {TransitionLink} from '../lib/src'
+import {TransitionLink} from 'react-wipes'
+import {Overlay as StarWipeOverlay} from 'react-wipes/StarWipe'
 import {Link} from "react-router-dom";
 import {CirclePicker} from 'react-color'
 import {setPrimaryColor} from '../theme/actions'
@@ -33,7 +34,7 @@ export function Home() {
       <Typography variant="h2">Github</Typography>
       <Box m={1}>
         <TransitionLink
-          style={{color: primaryColor}}
+          color={primaryColor}
           to="https://github.com/rhigdon/react-wipes"
         >https://github.com/rhigdon/react-wipes</TransitionLink>
       </Box>
@@ -70,8 +71,8 @@ export function Home() {
           </Grid>
           <Grid item>
             <TransitionLink
-              overlay="scale"
-              style={{color: primaryColor}}
+              color={primaryColor}
+              overlay={StarWipeOverlay}
               to="https://ryanhigdon.com"
             >Ryan Higdon</TransitionLink>
           </Grid>

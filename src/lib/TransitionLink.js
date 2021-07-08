@@ -7,19 +7,15 @@ exports.TransitionLink = TransitionLink;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _HorizontalWipe = require("./HorizontalWipe");
-
 var _VerticalWipe = require("./VerticalWipe");
 
-var _StarWipe = require("./StarWipe");
-
-var _SplitVerticalWipe = require("./SplitVerticalWipe");
-
-var _SplitHorizontalWipe = require("./SplitHorizontalWipe");
-
-var _ScaleWipe = require("./ScaleWipe");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -33,34 +29,10 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function getOverlay(overlay) {
-  switch (overlay) {
-    case "horizontal":
-      return _HorizontalWipe.Overlay;
-
-    case "scale":
-      return _ScaleWipe.Overlay;
-
-    case "split-horizontal":
-      return _SplitHorizontalWipe.Overlay;
-
-    case "split-vertical":
-      return _SplitVerticalWipe.Overlay;
-
-    case "star":
-      return _StarWipe.Overlay;
-
-    case "vertical":
-      return _VerticalWipe.Overlay;
-
-    default:
-      return _VerticalWipe.Overlay;
-  }
-}
-
 function TransitionLink(_ref) {
   var className = _ref.className,
       children = _ref.children,
+      color = _ref.color,
       overlay = _ref.overlay,
       style = _ref.style,
       to = _ref.to;
@@ -70,13 +42,13 @@ function TransitionLink(_ref) {
       start = _React$useState2[0],
       setStart = _React$useState2[1];
 
-  var Overlay = overlay ? getOverlay(overlay) : _VerticalWipe.Overlay;
+  var Overlay = overlay ? overlay : _VerticalWipe.Overlay;
   return /*#__PURE__*/_react.default.createElement("div", {
     style: {
       cursor: 'pointer'
     }
   }, start && /*#__PURE__*/_react.default.createElement(Overlay, {
-    color: style.color ? style.color : '',
+    color: color,
     start: start,
     onFinish: function onFinish() {
       var open = window.open(to, '_blank');
@@ -89,7 +61,9 @@ function TransitionLink(_ref) {
     }
   }), /*#__PURE__*/_react.default.createElement("a", {
     className: className,
-    style: style,
+    style: _objectSpread(_objectSpread({}, style), {}, {
+      color: color
+    }),
     href: to,
     onClick: function onClick(e) {
       setStart(true);
