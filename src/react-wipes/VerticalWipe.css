@@ -1,5 +1,5 @@
 .vertical, .split-vertical {
-  animation: shrinkHeight infinite 1.1s linear;
+  animation: shrinkHeight infinite 1s linear;
 }
 .shape {
   fill: #0b556a;

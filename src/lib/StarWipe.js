@@ -43,14 +43,16 @@ function StarCutout(_ref) {
   var ref = _react.default.useRef(null);
 
   _react.default.useEffect(function () {
-    var basicTimeline = _reactAnime.anime.timeline();
+    if (ref && ref.current) {
+      var basicTimeline = _reactAnime.anime.timeline();
 
-    basicTimeline.add({
-      targets: ref.current,
-      scale: [1, 55],
-      duration: 3000,
-      easing: "easeOutSine"
-    });
+      basicTimeline.add({
+        targets: ref.current,
+        scale: [1, 55],
+        duration: 3000,
+        easing: "easeOutSine"
+      });
+    }
   }, [ref]);
 
   return /*#__PURE__*/_react.default.createElement("svg", {

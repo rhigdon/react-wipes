@@ -4,14 +4,16 @@ export function Overlay({children, start, onFinish, timeout}) {
   const [isVisible, setIsVisible] = React.useState(true)
   const [top, setTop] = React.useState(parseInt(window.scrollY, 10))
   React.useEffect(() => {
+    let mounted = true
     if (!start) return
     let _timeout = setTimeout(()=>{
       if (onFinish) {
         onFinish()
       }
-      setIsVisible(false)
+      if (mounted) setIsVisible(false)
     }, timeout ? timeout : 900)
     return () => {
+      mounted = false
       clearTimeout(_timeout)
     };
   }, [start, onFinish, timeout])

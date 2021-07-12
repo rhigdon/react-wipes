@@ -38,8 +38,6 @@ function CircleShape(_ref) {
     transform: 'scale(3.3)'
   };
 
-  var ref = _react.default.useRef(null);
-
   _react.default.useEffect(function () {
     var circle = document.getElementById('green-halo');
     var interval = 30;
@@ -54,14 +52,12 @@ function CircleShape(_ref) {
 
       angle += angle_increment;
     }, interval);
-  }, [ref]);
+  }, []);
 
   return /*#__PURE__*/_react.default.createElement("svg", {
-    ref: ref,
     width: "100%",
     height: "100%",
     id: "e350d5ca-b3f4-4409-80c7-c3f48cc0f93e",
-    "data-name": "Layer 1",
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 1024 768",
     style: style

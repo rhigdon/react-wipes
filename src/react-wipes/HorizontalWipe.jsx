@@ -12,19 +12,20 @@ export function Overlay(props) {
   )
 }
 function Screen(props) {
-  const {color} = props
+  const {color, direction} = props
   let ref = React.useRef(null)
   React.useEffect(()=>{
-    var basicTimeline = anime.timeline();
-    basicTimeline
-      .add({
-        targets:ref.current,
-        translateX: props.direction ? `-=${window.innerWidth}` : `${window.innerWidth}px`,
-        duration: 1000,
-        easing: "easeInOutSine",
-      })
-
-  }, [ref, props])
+    if (ref && ref.current) {
+      var basicTimeline = anime.timeline();
+      basicTimeline
+        .add({
+          targets:ref.current,
+          translateX: direction ? `-=${window.innerWidth}` : `${window.innerWidth}px`,
+          duration: 1000,
+          easing: "easeInOutSine",
+        })
+    }
+  }, [ref, direction])
   return (
     <div
       ref={ref}

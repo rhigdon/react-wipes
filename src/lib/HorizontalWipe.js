@@ -31,20 +31,23 @@ function Overlay(props) {
 }
 
 function Screen(props) {
-  var color = props.color;
+  var color = props.color,
+      direction = props.direction;
 
   var ref = _react.default.useRef(null);
 
   _react.default.useEffect(function () {
-    var basicTimeline = _reactAnime.anime.timeline();
+    if (ref && ref.current) {
+      var basicTimeline = _reactAnime.anime.timeline();
 
-    basicTimeline.add({
-      targets: ref.current,
-      translateX: props.direction ? "-=".concat(window.innerWidth) : "".concat(window.innerWidth, "px"),
-      duration: 1000,
-      easing: "easeInOutSine"
-    });
-  }, [ref, props]);
+      basicTimeline.add({
+        targets: ref.current,
+        translateX: direction ? "-=".concat(window.innerWidth) : "".concat(window.innerWidth, "px"),
+        duration: 1000,
+        easing: "easeInOutSine"
+      });
+    }
+  }, [ref, direction]);
 
   return /*#__PURE__*/_react.default.createElement("div", {
     ref: ref,

@@ -18,14 +18,16 @@ function StarCutout({color}) {
   };
   let ref = React.useRef(null)
   React.useEffect(()=>{
-    var basicTimeline = anime.timeline();
-    basicTimeline
-      .add({
-        targets:ref.current,
-        scale: [1, 55],
-        duration: 3000,
-        easing: "easeOutSine"
-      })
+    if (ref && ref.current) {
+      var basicTimeline = anime.timeline();
+      basicTimeline
+        .add({
+          targets:ref.current,
+          scale: [1, 55],
+          duration: 3000,
+          easing: "easeOutSine"
+        })
+    }
   }, [ref])
   return (
     <svg

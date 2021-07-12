@@ -39,6 +39,18 @@ Object.defineProperty(exports, "withDiagonalWipe", {
     return _DiagonalWipe.withDiagonalWipe;
   }
 });
+Object.defineProperty(exports, "HeartWipe", {
+  enumerable: true,
+  get: function get() {
+    return _HeartWipe.HeartWipe;
+  }
+});
+Object.defineProperty(exports, "withHeartWipe", {
+  enumerable: true,
+  get: function get() {
+    return _HeartWipe.withHeartWipe;
+  }
+});
 Object.defineProperty(exports, "HorizontalWipe", {
   enumerable: true,
   get: function get() {
@@ -51,6 +63,18 @@ Object.defineProperty(exports, "withHorizontalWipe", {
     return _HorizontalWipe.withHorizontalWipe;
   }
 });
+Object.defineProperty(exports, "MatrixWipe", {
+  enumerable: true,
+  get: function get() {
+    return _MatrixWipe.MatrixWipe;
+  }
+});
+Object.defineProperty(exports, "withMatrixWipe", {
+  enumerable: true,
+  get: function get() {
+    return _MatrixWipe.withMatrixWipe;
+  }
+});
 Object.defineProperty(exports, "ScaleWipe", {
   enumerable: true,
   get: function get() {
@@ -61,6 +85,18 @@ Object.defineProperty(exports, "withScaleWipe", {
   enumerable: true,
   get: function get() {
     return _ScaleWipe.withScaleWipe;
+  }
+});
+Object.defineProperty(exports, "SplitDiagonalWipe", {
+  enumerable: true,
+  get: function get() {
+    return _SplitDiagonalWipe.SplitDiagonalWipe;
+  }
+});
+Object.defineProperty(exports, "withSplitDiagonalWipe", {
+  enumerable: true,
+  get: function get() {
+    return _SplitDiagonalWipe.withSplitDiagonalWipe;
   }
 });
 Object.defineProperty(exports, "SplitHorizontalWipe", {
@@ -124,9 +160,15 @@ var _ClockWipe = require("./ClockWipe");
 
 var _DiagonalWipe = require("./DiagonalWipe");
 
+var _HeartWipe = require("./HeartWipe");
+
 var _HorizontalWipe = require("./HorizontalWipe");
 
+var _MatrixWipe = require("./MatrixWipe");
+
 var _ScaleWipe = require("./ScaleWipe");
+
+var _SplitDiagonalWipe = require("./SplitDiagonalWipe");
 
 var _SplitHorizontalWipe = require("./SplitHorizontalWipe");
 

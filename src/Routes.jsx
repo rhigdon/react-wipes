@@ -3,6 +3,7 @@ import {
   ClockWipe,
   DiagonalWipe,
   HorizontalWipe,
+  MatrixWipe,
   ScaleWipe,
   SplitHorizontalWipe,
   SplitVerticalWipe,
@@ -10,6 +11,7 @@ import {
   VerticalWipe,
   withBounceWipe,
 } from 'react-wipes'
+import {HeartWipe, SplitDiagonalWipe} from 'react-wipes'
 import {
   HashRouter as Router,
   Switch,
@@ -29,6 +31,11 @@ export function Routes() {
               <Home />
             </DiagonalWipe>
           </Route>
+          <Route path="/split-diagonal">
+            <SplitDiagonalWipe color={primaryColor}>
+              <Home />
+            </SplitDiagonalWipe>
+          </Route>
           <Route path="/vertical">
               <VerticalWipe color={primaryColor}>
                 <Home />
@@ -38,6 +45,16 @@ export function Routes() {
               <SplitVerticalWipe color={primaryColor}>
                 <Home />
               </SplitVerticalWipe>
+          </Route>
+          <Route path="/heart-wipe">
+              <HeartWipe color={primaryColor}>
+                <Home />
+              </HeartWipe>
+          </Route>
+          <Route path="/matrix-wipe">
+              <MatrixWipe color={primaryColor}>
+                <Home />
+              </MatrixWipe>
           </Route>
           <Route path="/horizontal">
               <HorizontalWipe color={primaryColor}>

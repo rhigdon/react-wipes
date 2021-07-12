@@ -12,8 +12,7 @@ export function Overlay(props) {
 }
 function CircleShape({color}) {
   let style = { position:"fixed", top:0, bottom:0, left:0, right:0, transform: 'scale(3.3)' };
-  let ref = React.useRef(null)
-  React.useEffect(()=>{
+  React.useEffect(() => {
     var circle = document.getElementById('green-halo');
     var interval = 30;
     var angle = 0;
@@ -25,14 +24,12 @@ function CircleShape({color}) {
         }
         angle += angle_increment;
     }, interval);
-  }, [ref])
+  }, [])
   return (
     <svg
-      ref={ref}
       width="100%"
       height="100%"
       id="e350d5ca-b3f4-4409-80c7-c3f48cc0f93e"
-      data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1024 768"
       style={style}

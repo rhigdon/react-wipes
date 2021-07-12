@@ -38,6 +38,7 @@ function Overlay(_ref) {
       setTop = _React$useState4[1];
 
   _react.default.useEffect(function () {
+    var mounted = true;
     if (!start) return;
 
     var _timeout = setTimeout(function () {
@@ -45,10 +46,11 @@ function Overlay(_ref) {
         onFinish();
       }
 
-      setIsVisible(false);
+      if (mounted) setIsVisible(false);
     }, timeout ? timeout : 900);
 
     return function () {
+      mounted = false;
       clearTimeout(_timeout);
     };
   }, [start, onFinish, timeout]);

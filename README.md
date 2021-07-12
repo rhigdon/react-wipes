@@ -85,7 +85,7 @@ import {DiagonalWipe} from 'react-wipes'
 <Router>
     <Switch>
       <Route path="/diagonal">
-        <DiagonalWipe start={true}>
+        <DiagonalWipe>
           <Home />
         </DiagonalWipe>
       </Route>
