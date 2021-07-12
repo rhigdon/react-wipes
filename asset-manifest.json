@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/react-wipes/static/css/main.e0149896.chunk.css",
-    "main.js": "/react-wipes/static/js/main.a1e65353.chunk.js",
-    "main.js.map": "/react-wipes/static/js/main.a1e65353.chunk.js.map",
+    "main.css": "/react-wipes/static/css/main.126a2bbe.chunk.css",
+    "main.js": "/react-wipes/static/js/main.c1ddd442.chunk.js",
+    "main.js.map": "/react-wipes/static/js/main.c1ddd442.chunk.js.map",
     "runtime-main.js": "/react-wipes/static/js/runtime-main.167fdc72.js",
     "runtime-main.js.map": "/react-wipes/static/js/runtime-main.167fdc72.js.map",
-    "static/css/2.e67600da.chunk.css": "/react-wipes/static/css/2.e67600da.chunk.css",
-    "static/js/2.b094fdd0.chunk.js": "/react-wipes/static/js/2.b094fdd0.chunk.js",
-    "static/js/2.b094fdd0.chunk.js.map": "/react-wipes/static/js/2.b094fdd0.chunk.js.map",
+    "static/css/2.60369465.chunk.css": "/react-wipes/static/css/2.60369465.chunk.css",
+    "static/js/2.4797c91e.chunk.js": "/react-wipes/static/js/2.4797c91e.chunk.js",
+    "static/js/2.4797c91e.chunk.js.map": "/react-wipes/static/js/2.4797c91e.chunk.js.map",
     "index.html": "/react-wipes/index.html",
-    "precache-manifest.45c33407bb4a3456aa255579165ee14a.js": "/react-wipes/precache-manifest.45c33407bb4a3456aa255579165ee14a.js",
+    "precache-manifest.ae367fd067ae05e219bfee8836a589eb.js": "/react-wipes/precache-manifest.ae367fd067ae05e219bfee8836a589eb.js",
     "service-worker.js": "/react-wipes/service-worker.js",
-    "static/css/2.e67600da.chunk.css.map": "/react-wipes/static/css/2.e67600da.chunk.css.map",
-    "static/css/main.e0149896.chunk.css.map": "/react-wipes/static/css/main.e0149896.chunk.css.map",
-    "static/js/2.b094fdd0.chunk.js.LICENSE.txt": "/react-wipes/static/js/2.b094fdd0.chunk.js.LICENSE.txt"
+    "static/css/2.60369465.chunk.css.map": "/react-wipes/static/css/2.60369465.chunk.css.map",
+    "static/css/main.126a2bbe.chunk.css.map": "/react-wipes/static/css/main.126a2bbe.chunk.css.map",
+    "static/js/2.4797c91e.chunk.js.LICENSE.txt": "/react-wipes/static/js/2.4797c91e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.167fdc72.js",
-    "static/css/2.e67600da.chunk.css",
-    "static/js/2.b094fdd0.chunk.js",
-    "static/css/main.e0149896.chunk.css",
-    "static/js/main.a1e65353.chunk.js"
+    "static/css/2.60369465.chunk.css",
+    "static/js/2.4797c91e.chunk.js",
+    "static/css/main.126a2bbe.chunk.css",
+    "static/js/main.c1ddd442.chunk.js"
   ]
 }
