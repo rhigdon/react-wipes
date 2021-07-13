@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/react-wipes/static/css/main.126a2bbe.chunk.css",
-    "main.js": "/react-wipes/static/js/main.81e9b58d.chunk.js",
-    "main.js.map": "/react-wipes/static/js/main.81e9b58d.chunk.js.map",
+    "main.js": "/react-wipes/static/js/main.c9505fb1.chunk.js",
+    "main.js.map": "/react-wipes/static/js/main.c9505fb1.chunk.js.map",
     "runtime-main.js": "/react-wipes/static/js/runtime-main.167fdc72.js",
     "runtime-main.js.map": "/react-wipes/static/js/runtime-main.167fdc72.js.map",
     "static/css/2.60369465.chunk.css": "/react-wipes/static/css/2.60369465.chunk.css",
-    "static/js/2.d4191a41.chunk.js": "/react-wipes/static/js/2.d4191a41.chunk.js",
-    "static/js/2.d4191a41.chunk.js.map": "/react-wipes/static/js/2.d4191a41.chunk.js.map",
+    "static/js/2.d4885abd.chunk.js": "/react-wipes/static/js/2.d4885abd.chunk.js",
+    "static/js/2.d4885abd.chunk.js.map": "/react-wipes/static/js/2.d4885abd.chunk.js.map",
     "index.html": "/react-wipes/index.html",
-    "precache-manifest.aeff5da8b62e0f7f4d2883349877e8f9.js": "/react-wipes/precache-manifest.aeff5da8b62e0f7f4d2883349877e8f9.js",
+    "precache-manifest.0b3d73bbe54d00a107d6b376a7501a33.js": "/react-wipes/precache-manifest.0b3d73bbe54d00a107d6b376a7501a33.js",
     "service-worker.js": "/react-wipes/service-worker.js",
     "static/css/2.60369465.chunk.css.map": "/react-wipes/static/css/2.60369465.chunk.css.map",
     "static/css/main.126a2bbe.chunk.css.map": "/react-wipes/static/css/main.126a2bbe.chunk.css.map",
-    "static/js/2.d4191a41.chunk.js.LICENSE.txt": "/react-wipes/static/js/2.d4191a41.chunk.js.LICENSE.txt"
+    "static/js/2.d4885abd.chunk.js.LICENSE.txt": "/react-wipes/static/js/2.d4885abd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.167fdc72.js",
     "static/css/2.60369465.chunk.css",
-    "static/js/2.d4191a41.chunk.js",
+    "static/js/2.d4885abd.chunk.js",
     "static/css/main.126a2bbe.chunk.css",
-    "static/js/main.81e9b58d.chunk.js"
+    "static/js/main.c9505fb1.chunk.js"
   ]
 }

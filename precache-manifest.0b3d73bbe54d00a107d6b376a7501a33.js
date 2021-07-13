@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "229ff8283bb177130b9457cb17070006",
+    "revision": "f58aea8bc97902f3c612c3f981587f05",
     "url": "/react-wipes/index.html"
   },
   {
-    "revision": "95051a4686f15f1725dd",
+    "revision": "c556c607843def8460c8",
     "url": "/react-wipes/static/css/2.60369465.chunk.css"
   },
   {
-    "revision": "39bce206ed8b0ca5f3e8",
+    "revision": "dece6265c6e743a0d58c",
     "url": "/react-wipes/static/css/main.126a2bbe.chunk.css"
   },
   {
-    "revision": "95051a4686f15f1725dd",
-    "url": "/react-wipes/static/js/2.d4191a41.chunk.js"
+    "revision": "c556c607843def8460c8",
+    "url": "/react-wipes/static/js/2.d4885abd.chunk.js"
   },
   {
     "revision": "89b0379e7bcda1a468d8b0343aeb4e53",
-    "url": "/react-wipes/static/js/2.d4191a41.chunk.js.LICENSE.txt"
+    "url": "/react-wipes/static/js/2.d4885abd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "39bce206ed8b0ca5f3e8",
-    "url": "/react-wipes/static/js/main.81e9b58d.chunk.js"
+    "revision": "dece6265c6e743a0d58c",
+    "url": "/react-wipes/static/js/main.c9505fb1.chunk.js"
   },
   {
     "revision": "3aadb59d9e1114cafad5",
