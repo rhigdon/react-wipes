@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-wipes/static/css/main.126a2bbe.chunk.css",
-    "main.js": "/react-wipes/static/js/main.35c53072.chunk.js",
-    "main.js.map": "/react-wipes/static/js/main.35c53072.chunk.js.map",
+    "main.js": "/react-wipes/static/js/main.5904a3eb.chunk.js",
+    "main.js.map": "/react-wipes/static/js/main.5904a3eb.chunk.js.map",
     "runtime-main.js": "/react-wipes/static/js/runtime-main.167fdc72.js",
     "runtime-main.js.map": "/react-wipes/static/js/runtime-main.167fdc72.js.map",
     "static/css/2.60369465.chunk.css": "/react-wipes/static/css/2.60369465.chunk.css",
     "static/js/2.4d2d1465.chunk.js": "/react-wipes/static/js/2.4d2d1465.chunk.js",
     "static/js/2.4d2d1465.chunk.js.map": "/react-wipes/static/js/2.4d2d1465.chunk.js.map",
     "index.html": "/react-wipes/index.html",
-    "precache-manifest.57142a5824b72f7775ec2f591dff43ac.js": "/react-wipes/precache-manifest.57142a5824b72f7775ec2f591dff43ac.js",
+    "precache-manifest.e739ce78aec809307fd8feba1025a2f4.js": "/react-wipes/precache-manifest.e739ce78aec809307fd8feba1025a2f4.js",
     "service-worker.js": "/react-wipes/service-worker.js",
     "static/css/2.60369465.chunk.css.map": "/react-wipes/static/css/2.60369465.chunk.css.map",
     "static/css/main.126a2bbe.chunk.css.map": "/react-wipes/static/css/main.126a2bbe.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.60369465.chunk.css",
     "static/js/2.4d2d1465.chunk.js",
     "static/css/main.126a2bbe.chunk.css",
-    "static/js/main.35c53072.chunk.js"
+    "static/js/main.5904a3eb.chunk.js"
   ]
 }
