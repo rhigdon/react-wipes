@@ -9,8 +9,6 @@ exports.withVerticalWipe = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-require("./VerticalWipe.css");
-
 var _Overlay = require("./Overlay");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -39,9 +37,9 @@ function Overlay(_ref) {
   }, /*#__PURE__*/_react.default.createElement("div", {
     style: {
       width: "100%",
-      background: color ? color : '#0b556a'
-    },
-    className: "vertical"
+      background: color ? color : '#0b556a',
+      animation: "shrinkHeight infinite 1s linear"
+    }
   }), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       background: color ? color : '#0b556a',
@@ -62,7 +60,7 @@ function VerticalWipe(_ref2) {
       start = _React$useState2[0],
       setStart = _React$useState2[1];
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("style", null, "\n          @keyframes shrinkHeight {\n            from {\n              height: 100%;\n            }\n            to {\n              height: 0%;\n            }\n          }\n        "), /*#__PURE__*/_react.default.createElement(Overlay, {
     color: color,
     start: start,
     onFinish: function onFinish() {

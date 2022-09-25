@@ -11,8 +11,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _Overlay = require("./Overlay");
 
-require("./SplitHorizontalWipe.css");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -47,8 +45,8 @@ function Overlay(props) {
     }
   }, /*#__PURE__*/_react.default.createElement("div", {
     ref: leftRef,
-    className: "split-horizontal",
     style: {
+      animation: 'shrink infinite 1.1s linear',
       height: "100%",
       width: "100%",
       background: color ? color : '#0b556a',
@@ -83,7 +81,7 @@ function Overlay(props) {
 function SplitHorizontalWipe(_ref) {
   var color = _ref.color,
       children = _ref.children;
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("style", null, "\n          @keyframes shrink {\n            from {\n              width: 100%;\n            }\n            to {\n              width: 0%;\n            }\n          }\n        "), /*#__PURE__*/_react.default.createElement(Overlay, {
     color: color,
     start: true
   }), children);

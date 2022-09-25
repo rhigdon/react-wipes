@@ -1,5 +1,4 @@
 import React from "react";
-import './VerticalWipe.css'
 import {Overlay as BaseOverlay} from './Overlay'
 
 export function Overlay({color, start, onFinish}) {
@@ -9,8 +8,8 @@ export function Overlay({color, start, onFinish}) {
         style={{
           width: "100%",
           background: color ? color : '#0b556a',
+          animation: "shrinkHeight infinite 1s linear"
         }}
-        className="vertical"
       />
       <div
         style={{
@@ -28,6 +27,18 @@ export function VerticalWipe({color, children}){
   const [start, setStart] = React.useState(true)
   return (
     <div>
+      <style>
+        {`
+          @keyframes shrinkHeight {
+            from {
+              height: 100%;
+            }
+            to {
+              height: 0%;
+            }
+          }
+        `}
+      </style>
       <Overlay
         color={color}
         start={start}

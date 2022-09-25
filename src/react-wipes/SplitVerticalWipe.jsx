@@ -11,8 +11,8 @@ export function Overlay(props) {
         height: "50%",
       }}>
         <div
-          className="split-vertical"
           style={{
+            animation: "shrinkHeight infinite 1s linear",
             height: `100%`,
             width: `100%`,
             background: color ? color : '#0b556a',
@@ -47,6 +47,18 @@ export function Overlay(props) {
 export function SplitVerticalWipe({children, color}){
   return (
     <div>
+      <style>
+        {`
+          @keyframes shrinkHeight {
+            from {
+              height: 100%;
+            }
+            to {
+              height: 0%;
+            }
+          }
+        `}
+      </style>
       <Overlay color={color} start={true}/>
       {children}
     </div>

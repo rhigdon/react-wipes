@@ -1,6 +1,6 @@
 const initialState = {
   isDarkTheme: localStorage.getItem('isDarkTheme') || false,
-  primaryColor: localStorage.getItem('primaryColor') || "ORANGE",
+  primaryColor: localStorage.getItem('primaryColor') || "#e91e63",
 };
 
 export function themeReducer(state=initialState, action){

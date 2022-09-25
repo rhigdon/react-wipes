@@ -9,7 +9,10 @@ See example site here: https://rhigdon.github.io/react-wipes/
 ## Base Wipes
 - ClockWipe
 - DiagonalWipe
+- SplitDiagonalWipe
+- HeartWipe
 - HorizontalWipe
+- MatrixWipe
 - ScaleWipe
 - SplitHorizontalWipe
 - SplitVerticalWipe
