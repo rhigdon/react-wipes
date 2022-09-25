@@ -24,8 +24,8 @@ function Overlay(props) {
       height: "50%"
     }
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "split-vertical",
     style: {
+      animation: "shrinkHeight infinite 1s linear",
       height: "100%",
       width: "100%",
       background: color ? color : '#0b556a'
@@ -57,7 +57,7 @@ function Overlay(props) {
 function SplitVerticalWipe(_ref) {
   var children = _ref.children,
       color = _ref.color;
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("style", null, "\n          @keyframes shrinkHeight {\n            from {\n              height: 100%;\n            }\n            to {\n              height: 0%;\n            }\n          }\n        "), /*#__PURE__*/_react.default.createElement(Overlay, {
     color: color,
     start: true
   }), children);

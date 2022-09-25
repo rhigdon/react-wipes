@@ -32,7 +32,7 @@ function Overlay(_ref) {
       isVisible = _React$useState2[0],
       setIsVisible = _React$useState2[1];
 
-  var _React$useState3 = _react.default.useState(parseInt(window.scrollY, 10)),
+  var _React$useState3 = _react.default.useState(0),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
       top = _React$useState4[0],
       setTop = _React$useState4[1];
