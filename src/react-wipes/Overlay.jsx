@@ -2,7 +2,7 @@ import React from 'react'
 
 export function Overlay({children, start, onFinish, timeout}) {
   const [isVisible, setIsVisible] = React.useState(true)
-  const [top, setTop] = React.useState(parseInt(window.scrollY, 10))
+  const [top, setTop] = React.useState(0)
   React.useEffect(() => {
     let mounted = true
     if (!start) return

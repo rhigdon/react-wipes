@@ -36,10 +36,11 @@ function MatrixCutout({color, secondaryColor}) {
   const SQUARES = 68;
   return (
     <svg
+      width="100%"
+      height="100%"
       id="matrix-cutout"
       ref={ref}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 518 517.94">
+      viewBox="0 0 518 518">
       {[...new Array(8)].map((_, rowIdx) => {
         let fillColor
         return (

@@ -9,8 +9,6 @@ exports.withVerticalWipe = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-require("./VerticalWipe.css");
-
 var _Overlay = require("./Overlay");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

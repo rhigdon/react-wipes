@@ -1,5 +1,4 @@
 import React from "react";
-import './VerticalWipe.css'
 import {Overlay as BaseOverlay} from './Overlay'
 
 export function Overlay({color, start, onFinish}) {

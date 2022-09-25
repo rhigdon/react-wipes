@@ -2,7 +2,6 @@ import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
-import IconButton from '@material-ui/core/IconButton'
 import Slide from '@material-ui/core/Slide'
 import Tooltip from '@material-ui/core/Tooltip'
 import Typography from '@material-ui/core/Typography'
@@ -10,7 +9,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import FileCopyIcon from '@material-ui/icons/FileCopy'
 import {TransitionLink} from 'react-wipes'
 import {Overlay as StarWipeOverlay} from 'react-wipes/StarWipe'
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {CirclePicker} from 'react-color'
 import {setPrimaryColor} from '../theme/actions'
 import {getPrimaryColor} from "../theme/selectors";
@@ -26,12 +25,12 @@ function Logo({primaryColor}) {
           <img
             alt="left-title-icon"
             className="logo-icon"
-            width="25px"
+            width="20px"
             src="/react-wipes/cinema_icon.svg"
           />
         </Box>
       </Tooltip>
-      <Typography variant="h6">
+      <Typography variant="subtitle1">
         <Link
           style={{color: primaryColor}}
           to="/"
@@ -42,7 +41,7 @@ function Logo({primaryColor}) {
           <img
             alt="right-title-icon"
             className="right-logo-icon"
-            width="25px"
+            width="20px"
             src="/react-wipes/cinema_icon.svg"
           />
         </Box>
@@ -55,8 +54,10 @@ function Install() {
   const INSTALL_TEXT = "yarn add react-wipes"
   const [open, setOpen] = React.useState(false)
   return (
-    <Grid container alignItems="center" spacing={2}>
-      <Typography>{INSTALL_TEXT}</Typography>
+    <Grid container direction="row" justify="center">
+      <Grid item>
+        <Typography variant="caption">{INSTALL_TEXT}</Typography>
+      </Grid>
       <Grid item>
         <Box m={1}>
           <ClickAwayListener onClickAway={() => setOpen(false)}>
@@ -71,12 +72,13 @@ function Install() {
               disableTouchListener
               title="Copied!"
             >
-              <IconButton
+              <div
+                style={{cursor: 'pointer'}}
                 onClick={() => {
                   navigator.clipboard.writeText(INSTALL_TEXT)
                   setOpen(true)
                 }}
-              ><FileCopyIcon/></IconButton>
+              ><FileCopyIcon fontSize="small"/></div>
             </Tooltip>
           </ClickAwayListener>
         </Box>
@@ -103,6 +105,7 @@ export function Home() {
           </Grid>
         </AppBar>
       </Slide>
+      <Box m={4} />
       <Typography variant="h2">Github</Typography>
       <Box m={1}>
         <TransitionLink
@@ -133,10 +136,17 @@ export function Home() {
       {/**
         <Link className="App-link" to="/next">Matrix</Link>
       */}
+      <Typography variant="h2">NPM</Typography>
+      <Box m={1}>
+        <TransitionLink
+          color={primaryColor}
+          to="https://www.npmjs.com/package/react-wipes"
+        >https://www.npmjs.com/package/react-wipes</TransitionLink>
+      </Box>
       <Box m={5}>
         <Grid container alignItems="baseline" justify="center" spacing={1}>
           <Grid item>
-            <Typography>Made with ❤ by</Typography>
+            <Typography>Made with <span role="img" aria-label="heart">❤️</span> by</Typography>
           </Grid>
           <Grid item>
             <TransitionLink
@@ -153,14 +163,17 @@ export function Home() {
 
 function AppLink({children, to}) {
   const primaryColor = useSelector(getPrimaryColor)
+  const location = useLocation()
   return (
     <Box m={1}>
       <Link
+        replace={true}
         style={{color: primaryColor}}
-        onClick={()=>{
-          window.location.href="/react-wipes#"+to
-          if (window.location.hash === ("#" + to)) {
-            window.location.reload()
+        onClick={(e)=>{
+          location.href="/react-wipes#"+to
+          if (location.pathname === to) {
+            window.location.reload(true)
+            e.preventDefault()
           }
         }}
         to={to}>

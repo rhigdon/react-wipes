@@ -3,7 +3,7 @@
   "author": "Ryan Higdon",
   "license": "MIT",
   "homepage": "https://rhigdon.github.io/react-wipes",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "keywords": [
     "transitions",
     "interstitials"

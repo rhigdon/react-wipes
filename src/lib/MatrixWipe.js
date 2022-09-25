@@ -70,10 +70,11 @@ function MatrixCutout(_ref) {
   var height = "68";
   var SQUARES = 68;
   return /*#__PURE__*/_react.default.createElement("svg", {
+    width: "100%",
+    height: "100%",
     id: "matrix-cutout",
     ref: ref,
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 518 517.94"
+    viewBox: "0 0 518 518"
   }, _toConsumableArray(new Array(8)).map(function (_, rowIdx) {
     var fillColor;
     return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, {
