@@ -40,18 +40,18 @@ function CircleShape({color}) {
      </svg>
   )
 }
-export function ClockWipe({color, children}){
+export function ClockWipe({color, children, message=''}){
   return (
     <div>
-      <Overlay color={color} start={true} timeout={2000}/>
+      <Overlay message={message} color={color} start={true} timeout={2000}/>
       {children}
     </div>
   )
 }
 
-export const withClockWipe = (Component, color) => ({...props}) => {
+export const withClockWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <ClockWipe color={color}>
+    <ClockWipe color={color} message=''>
       <Component {...props} />
     </ClockWipe>
   )

@@ -69,8 +69,8 @@ function Overlay(props) {
     }
   }, /*#__PURE__*/_react.default.createElement("div", {
     ref: rightRef,
-    className: "split-horizontal",
     style: {
+      animation: 'shrink infinite 1.1s linear',
       height: "100%",
       background: color ? color : '#0b556a',
       width: "100%"
@@ -80,19 +80,24 @@ function Overlay(props) {
 
 function SplitHorizontalWipe(_ref) {
   var color = _ref.color,
-      children = _ref.children;
+      children = _ref.children,
+      _ref$message = _ref.message,
+      message = _ref$message === void 0 ? '' : _ref$message;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("style", null, "\n          @keyframes shrink {\n            from {\n              width: 100%;\n            }\n            to {\n              width: 0%;\n            }\n          }\n        "), /*#__PURE__*/_react.default.createElement(Overlay, {
     color: color,
-    start: true
+    start: true,
+    message: message
   }), children);
 }
 
 var withSplitHorizontalWipe = function withSplitHorizontalWipe(Component, color) {
+  var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   return function (_ref2) {
     var props = _extends({}, _ref2);
 
     return /*#__PURE__*/_react.default.createElement(SplitHorizontalWipe, {
-      color: color
+      color: color,
+      message: message
     }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };

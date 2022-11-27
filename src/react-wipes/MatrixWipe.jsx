@@ -75,18 +75,18 @@ function MatrixCutout({color, secondaryColor}) {
     </svg>
   )
 }
-export function MatrixWipe({color, children}){
+export function MatrixWipe({color, children, message=''}){
   return (
     <div>
-      <Overlay color={color} start={true} />
+      <Overlay color={color} start={true} message={message} />
       {children}
     </div>
   )
 }
 
-export const withMatrixWipe = (Component, color) => ({...props}) => {
+export const withMatrixWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <MatrixWipe color={color}>
+    <MatrixWipe color={color} message={message}>
       <Component {...props} />
     </MatrixWipe>
   )

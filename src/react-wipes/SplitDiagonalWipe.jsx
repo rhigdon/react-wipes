@@ -40,17 +40,17 @@ export function Overlay(props) {
     </BaseOverlay>
   )
 }
-export function SplitDiagonalWipe({color, children}){
+export function SplitDiagonalWipe({color, children, message=''}){
   return (
     <div>
-      <Overlay color={color} start={true}/>
+      <Overlay color={color} start={true} message={message} />
       {children}
     </div>
   )
 }
-export const withSplitDiagonalWipe = (Component, color) => ({...props}) => {
+export const withSplitDiagonalWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <SplitDiagonalWipe color={color}>
+    <SplitDiagonalWipe color={color} message={message} >
       <Component {...props} />
     </SplitDiagonalWipe>
   )

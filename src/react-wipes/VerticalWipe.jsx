@@ -1,9 +1,9 @@
 import React from "react";
 import {Overlay as BaseOverlay} from './Overlay'
 
-export function Overlay({color, start, onFinish}) {
+export function Overlay({color, start, onFinish, message}) {
   return (
-    <BaseOverlay start={start} onFinish={onFinish}>
+    <BaseOverlay start={start} onFinish={onFinish} message={message}>
       <div
         style={{
           width: "100%",
@@ -23,7 +23,7 @@ export function Overlay({color, start, onFinish}) {
   )
 }
 
-export function VerticalWipe({color, children}){
+export function VerticalWipe({color, children, message=''}){
   const [start, setStart] = React.useState(true)
   return (
     <div>
@@ -40,6 +40,7 @@ export function VerticalWipe({color, children}){
         `}
       </style>
       <Overlay
+        message={message}
         color={color}
         start={start}
         onFinish={()=>setStart(false)}
@@ -62,9 +63,9 @@ function Shape ({color}){
   )
 }
 
-export const withVerticalWipe = (Component, color) => ({...props}) => {
+export const withVerticalWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <VerticalWipe color={color}>
+    <VerticalWipe color={color} message={message}>
       <Component {...props} />
     </VerticalWipe>
   )

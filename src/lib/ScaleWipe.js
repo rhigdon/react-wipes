@@ -49,15 +49,20 @@ function ScaleWipe(_ref) {
       children = _ref.children;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
     color: color,
-    start: true
+    start: true,
+    message: message
   }), children);
 }
 
-var withScaleWipe = function withScaleWipe(Component) {
+var withScaleWipe = function withScaleWipe(Component, color) {
+  var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   return function (_ref2) {
     var props = _extends({}, _ref2);
 
-    return /*#__PURE__*/_react.default.createElement(ScaleWipe, null, /*#__PURE__*/_react.default.createElement(Component, props));
+    return /*#__PURE__*/_react.default.createElement(ScaleWipe, {
+      color: color,
+      message: message
+    }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };
 

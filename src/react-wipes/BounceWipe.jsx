@@ -41,9 +41,9 @@ export let BounceWipe = (props) => {
         </div>
     )
 }
-export const withBounceWipe = (Component, color) => ({...props}) => {
+export const withBounceWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <BounceWipe color={color}>
+    <BounceWipe color={color} message={message}>
       <Component {...props} />
     </BounceWipe>
   )

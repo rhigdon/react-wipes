@@ -78,11 +78,13 @@ var BounceWipe = function BounceWipe(props) {
 exports.BounceWipe = BounceWipe;
 
 var withBounceWipe = function withBounceWipe(Component, color) {
+  var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   return function (_ref) {
     var props = _extends({}, _ref);
 
     return /*#__PURE__*/_react.default.createElement(BounceWipe, {
-      color: color
+      color: color,
+      message: message
     }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };

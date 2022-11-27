@@ -23,6 +23,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Overlay(_ref) {
   var children = _ref.children,
+      message = _ref.message,
       start = _ref.start,
       onFinish = _ref.onFinish,
       timeout = _ref.timeout;
@@ -59,7 +60,8 @@ function Overlay(_ref) {
     setTop(parseInt(window.scrollY, 10));
   }, []);
 
-  return /*#__PURE__*/_react.default.createElement("div", {
+  console.log(top);
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: isVisible ? "block" : "none",
       position: "absolute",
@@ -70,5 +72,15 @@ function Overlay(_ref) {
       overflow: "hidden",
       zIndex: 100
     }
-  }, children);
+  }, children), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: isVisible ? "block" : "none",
+      position: "absolute",
+      top: top + window.innerHeight / 2,
+      left: '46%',
+      overflow: "hidden",
+      zIndex: 100,
+      transform: 'translate(-50%, -50%)'
+    }
+  }, message));
 }

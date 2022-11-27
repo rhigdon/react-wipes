@@ -32,11 +32,11 @@ export function Overlay(props) {
           alignItems: "flex-end"
         }}>
           <div
-            className="split-vertical"
             style={{
               height: `100%`,
               background: color ? color : '#0b556a',
               width: `100%`,
+              animation: "shrinkHeight infinite 1s linear",
             }}
           />
         </div>
@@ -44,7 +44,7 @@ export function Overlay(props) {
     </BaseOverlay>
   )
 }
-export function SplitVerticalWipe({children, color}){
+export function SplitVerticalWipe({children, color, message=''}){
   return (
     <div>
       <style>
@@ -59,15 +59,15 @@ export function SplitVerticalWipe({children, color}){
           }
         `}
       </style>
-      <Overlay color={color} start={true}/>
+      <Overlay color={color} start={true} message={message} />
       {children}
     </div>
   )
 }
 
-export const withSplitVerticalWipe = (Component, color) => ({...props}) => {
+export const withSplitVerticalWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <SplitVerticalWipe color={color}>
+    <SplitVerticalWipe color={color} message={message}>
       <Component {...props} />
     </SplitVerticalWipe>
   )

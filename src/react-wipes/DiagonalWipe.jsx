@@ -25,17 +25,17 @@ export function Overlay(props) {
     </BaseOverlay>
   )
 }
-export function DiagonalWipe({color, children}){
+export function DiagonalWipe({color, children, message=''}){
   return (
     <div>
-      <Overlay color={color} start={true}/>
+      <Overlay color={color} start={true} message={message} />
       {children}
     </div>
   )
 }
-export const withDiagonalWipe = (Component, color) => ({...props}) => {
+export const withDiagonalWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <DiagonalWipe color={color}>
+    <DiagonalWipe color={color} message={message}>
       <Component {...props} />
     </DiagonalWipe>
   )
