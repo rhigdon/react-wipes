@@ -1,2 +1,0 @@
-.split-horizontal{-webkit-animation:shrink 1.1s linear infinite;animation:shrink 1.1s linear infinite}@-webkit-keyframes shrink{0%{width:100%}to{width:0}}@keyframes shrink{0%{width:100%}to{width:0}}.split-vertical,.vertical{-webkit-animation:shrinkHeight 1s linear infinite;animation:shrinkHeight 1s linear infinite}.shape{fill:#0b556a}@-webkit-keyframes shrinkHeight{0%{height:100%}to{height:0%}}@keyframes shrinkHeight{0%{height:100%}to{height:0%}}
-/*# sourceMappingURL=2.60369465.chunk.css.map */
