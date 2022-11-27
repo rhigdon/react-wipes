@@ -10067,10 +10067,10 @@ react-transition-group@^4.4.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-wipes@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/react-wipes/-/react-wipes-0.1.5.tgz#2fcc406ace5697c5a5659ff9b4b61807e8353b8c"
-  integrity sha512-DA5EdEwDboDva75DD/ARVuBQ8OIBA0Lt3W6Ds8Bog+FgnytxjRwdBgMQpCC4Y/Z1R3jPmj4HDz1HI3JizXNB5g==
+react-wipes@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/react-wipes/-/react-wipes-0.1.6.tgz#5b7b76afc1c30a75449a0320574bbbe3b9a2c7bf"
+  integrity sha512-2HjwQhzAlvydlnBm0b1tVkrFYTwJFUmMHNeW4EY3bc8YMU/v1Z6wylC43dxvRjPp5gvLtzqtV1Sr/gN3eDcZSg==
   dependencies:
     animejs "^3.2.0"
     react-anime "^3.0.3"
