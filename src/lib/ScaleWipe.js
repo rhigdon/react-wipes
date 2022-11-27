@@ -46,7 +46,9 @@ function Overlay(props) {
 
 function ScaleWipe(_ref) {
   var color = _ref.color,
-      children = _ref.children;
+      children = _ref.children,
+      _ref$message = _ref.message,
+      message = _ref$message === void 0 ? '' : _ref$message;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
     color: color,
     start: true,

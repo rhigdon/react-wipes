@@ -21,7 +21,7 @@ export function Overlay(props) {
     </BaseOverlay>
   )
 }
-export function ScaleWipe({color, children}){
+export function ScaleWipe({color, children, message=''}){
   return (
     <div>
       <Overlay color={color} start={true} message={message} />
