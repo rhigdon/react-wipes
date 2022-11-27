@@ -34,6 +34,7 @@ function TransitionLink(_ref) {
       children = _ref.children,
       color = _ref.color,
       overlay = _ref.overlay,
+      message = _ref.message,
       style = _ref.style,
       to = _ref.to;
 
@@ -49,6 +50,7 @@ function TransitionLink(_ref) {
     }
   }, start && /*#__PURE__*/_react.default.createElement(Overlay, {
     color: color,
+    message: message,
     start: start,
     onFinish: function onFinish() {
       var open = window.open(to, '_blank');

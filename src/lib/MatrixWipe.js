@@ -109,19 +109,24 @@ function MatrixCutout(_ref) {
 
 function MatrixWipe(_ref2) {
   var color = _ref2.color,
-      children = _ref2.children;
+      children = _ref2.children,
+      _ref2$message = _ref2.message,
+      message = _ref2$message === void 0 ? '' : _ref2$message;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
     color: color,
-    start: true
+    start: true,
+    message: message
   }), children);
 }
 
 var withMatrixWipe = function withMatrixWipe(Component, color) {
+  var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   return function (_ref3) {
     var props = _extends({}, _ref3);
 
     return /*#__PURE__*/_react.default.createElement(MatrixWipe, {
-      color: color
+      color: color,
+      message: message
     }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };

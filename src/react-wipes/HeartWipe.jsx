@@ -40,18 +40,18 @@ function HeartCutout({color}) {
     </svg>
   )
 }
-export function HeartWipe({color, children}){
+export function HeartWipe({color, children, message=''}){
   return (
     <div>
-      <Overlay color={color} start={true} />
+      <Overlay color={color} start={true} message={message} />
       {children}
     </div>
   )
 }
 
-export const withHeartWipe = (Component, color) => ({...props}) => {
+export const withHeartWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <HeartWipe color={color}>
+    <HeartWipe color={color} message={message}>
       <Component {...props} />
     </HeartWipe>
   )

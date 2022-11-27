@@ -65,19 +65,24 @@ function Overlay(props) {
 
 function SplitDiagonalWipe(_ref) {
   var color = _ref.color,
-      children = _ref.children;
+      children = _ref.children,
+      _ref$message = _ref.message,
+      message = _ref$message === void 0 ? '' : _ref$message;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
     color: color,
-    start: true
+    start: true,
+    message: message
   }), children);
 }
 
 var withSplitDiagonalWipe = function withSplitDiagonalWipe(Component, color) {
+  var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   return function (_ref2) {
     var props = _extends({}, _ref2);
 
     return /*#__PURE__*/_react.default.createElement(SplitDiagonalWipe, {
-      color: color
+      color: color,
+      message: message
     }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };

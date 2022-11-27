@@ -24,15 +24,15 @@ export function Overlay(props) {
 export function ScaleWipe({color, children}){
   return (
     <div>
-      <Overlay color={color} start={true}/>
+      <Overlay color={color} start={true} message={message} />
       {children}
     </div>
   )
 }
 
-export const withScaleWipe = Component => ({...props}) => {
+export const withScaleWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <ScaleWipe>
+    <ScaleWipe color={color} message={message}>
       <Component {...props} />
     </ScaleWipe>
   )

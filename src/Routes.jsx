@@ -5,13 +5,15 @@ import {
   HorizontalWipe,
   MatrixWipe,
   ScaleWipe,
-  SplitHorizontalWipe,
-  SplitVerticalWipe,
   StarWipe,
   VerticalWipe,
   withBounceWipe,
+  HeartWipe,
+  SplitDiagonalWipe,
+  SplitHorizontalWipe,
+  SplitVerticalWipe
 } from 'react-wipes'
-import {HeartWipe, SplitDiagonalWipe} from 'react-wipes'
+import {} from 'react-wipes'
 import {
   HashRouter as Router,
   Switch,
@@ -67,7 +69,7 @@ export function Routes() {
             </HorizontalWipe>
           </Route>
           <Route path="/split-horizontal">
-              <SplitHorizontalWipe color={primaryColor}>
+              <SplitHorizontalWipe color={primaryColor} message='Testing'>
                 <Home />
               </SplitHorizontalWipe>
           </Route>
@@ -83,7 +85,7 @@ export function Routes() {
           </Route>
           <Route component={withBounceWipe(Home, primaryColor)} path="/bounce" />
           <Route path="/clock-wipe">
-            <ClockWipe color={primaryColor}>
+            <ClockWipe color={primaryColor} message={<div style={{background: 'white'}}>This is an example of a custom message!</div>}>
               <Home />
             </ClockWipe>
           </Route>

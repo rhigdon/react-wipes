@@ -76,8 +76,11 @@ function CircleShape(_ref) {
 
 function ClockWipe(_ref2) {
   var color = _ref2.color,
-      children = _ref2.children;
+      children = _ref2.children,
+      _ref2$message = _ref2.message,
+      message = _ref2$message === void 0 ? '' : _ref2$message;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Overlay, {
+    message: message,
     color: color,
     start: true,
     timeout: 2000
@@ -85,11 +88,13 @@ function ClockWipe(_ref2) {
 }
 
 var withClockWipe = function withClockWipe(Component, color) {
+  var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   return function (_ref3) {
     var props = _extends({}, _ref3);
 
     return /*#__PURE__*/_react.default.createElement(ClockWipe, {
-      color: color
+      color: color,
+      message: ""
     }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };

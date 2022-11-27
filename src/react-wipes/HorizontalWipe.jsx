@@ -37,18 +37,18 @@ function Screen(props) {
     ></div>
   )
 }
-export function HorizontalWipe({color, children, direction}){
+export function HorizontalWipe({color, children, direction, message=''}){
   return (
     <div>
-      <Overlay color={color} start={true} direction={direction}/>
+      <Overlay color={color} start={true} direction={direction} message={message}/>
       {children}
     </div>
   )
 }
 
-export const withHorizontalWipe = (Component, color) => ({...props}) => {
+export const withHorizontalWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <HorizontalWipe color={color}>
+    <HorizontalWipe color={color} message={message}>
       <Component {...props} />
     </HorizontalWipe>
   )

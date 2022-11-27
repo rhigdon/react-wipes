@@ -30,10 +30,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Overlay(_ref) {
   var color = _ref.color,
       start = _ref.start,
-      onFinish = _ref.onFinish;
+      onFinish = _ref.onFinish,
+      message = _ref.message;
   return /*#__PURE__*/_react.default.createElement(_Overlay.Overlay, {
     start: start,
-    onFinish: onFinish
+    onFinish: onFinish,
+    message: message
   }, /*#__PURE__*/_react.default.createElement("div", {
     style: {
       width: "100%",
@@ -53,7 +55,9 @@ function Overlay(_ref) {
 
 function VerticalWipe(_ref2) {
   var color = _ref2.color,
-      children = _ref2.children;
+      children = _ref2.children,
+      _ref2$message = _ref2.message,
+      message = _ref2$message === void 0 ? '' : _ref2$message;
 
   var _React$useState = _react.default.useState(true),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -61,6 +65,7 @@ function VerticalWipe(_ref2) {
       setStart = _React$useState2[1];
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("style", null, "\n          @keyframes shrinkHeight {\n            from {\n              height: 100%;\n            }\n            to {\n              height: 0%;\n            }\n          }\n        "), /*#__PURE__*/_react.default.createElement(Overlay, {
+    message: message,
     color: color,
     start: start,
     onFinish: function onFinish() {
@@ -83,11 +88,13 @@ function Shape(_ref3) {
 }
 
 var withVerticalWipe = function withVerticalWipe(Component, color) {
+  var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   return function (_ref4) {
     var props = _extends({}, _ref4);
 
     return /*#__PURE__*/_react.default.createElement(VerticalWipe, {
-      color: color
+      color: color,
+      message: message
     }, /*#__PURE__*/_react.default.createElement(Component, props));
   };
 };

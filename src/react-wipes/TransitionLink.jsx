@@ -6,6 +6,7 @@ export function TransitionLink({
   children,
   color,
   overlay,
+  message,
   style,
   to,
 }) {
@@ -14,7 +15,7 @@ export function TransitionLink({
   return (
     <div style={{cursor:'pointer'}}>
       {start && (
-        <Overlay color={color} start={start} onFinish={()=>{
+        <Overlay color={color} message={message} start={start} onFinish={()=>{
           const open = window.open(to, '_blank');
           if (!open) {
             window.location.assign(to)

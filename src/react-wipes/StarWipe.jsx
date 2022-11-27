@@ -48,18 +48,18 @@ function StarCutout({color}) {
        d="M1023,1V767H1V1H1023M477.2,344.28l-47.78,5.58-2,.24,1.41,1.45,33.5,34.53-9.45,47.17-.4,2,1.82-.9,43.19-21.19,41.94,23.57,1.76,1-.28-2-6.81-47.63,35.37-32.6L571,354.1l-2-.34-47.4-8.25L501.48,301.8l-.85-1.85-.94,1.8L477.2,344.28M1024,0H0V768H1024V0ZM453.85,433.45l9.55-47.69-33.87-34.9,48.31-5.65,22.73-43,20.3,44.2,47.91,8.33L533,387.7l6.88,48.15L497.51,412l-43.66,21.43Z"/></svg>
   )
 }
-export function StarWipe({color, children}){
+export function StarWipe({color, children, message=''}){
   return (
     <div>
-      <Overlay color={color} start={true} />
+      <Overlay color={color} start={true} message={message} />
       {children}
     </div>
   )
 }
 
-export const withStarWipe = (Component, color) => ({...props}) => {
+export const withStarWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <StarWipe color={color}>
+    <StarWipe color={color} message={message}>
       <Component {...props} />
     </StarWipe>
   )

@@ -51,8 +51,8 @@ export function Overlay(props) {
         }}>
           <div
             ref={rightRef}
-            className="split-horizontal"
             style={{
+              animation: 'shrink infinite 1.1s linear',
               height: `100%`,
               background: color ? color : '#0b556a',
               width: `100%`,
@@ -63,7 +63,7 @@ export function Overlay(props) {
     </BaseOverlay>
   )
 }
-export function SplitHorizontalWipe({color, children}){
+export function SplitHorizontalWipe({color, children, message=''}){
   return (
     <div>
       <style>
@@ -78,15 +78,15 @@ export function SplitHorizontalWipe({color, children}){
           }
         `}
       </style>
-      <Overlay color={color} start={true}/>
+      <Overlay color={color} start={true} message={message} />
       {children}
     </div>
   )
 }
 
-export const withSplitHorizontalWipe = (Component, color) => ({...props}) => {
+export const withSplitHorizontalWipe = (Component, color, message='') => ({...props}) => {
   return (
-    <SplitHorizontalWipe color={color}>
+    <SplitHorizontalWipe color={color} message={message}>
       <Component {...props} />
     </SplitHorizontalWipe>
   )
