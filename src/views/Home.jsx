@@ -139,6 +139,13 @@ export function Home() {
       <Typography variant="h2">NPM</Typography>
       <Box m={1}>
         <TransitionLink
+          message={
+            (
+              <div>
+                Goodbye Now
+              </div>
+            )
+          }
           color={primaryColor}
           to="https://www.npmjs.com/package/react-wipes"
         >https://www.npmjs.com/package/react-wipes</TransitionLink>

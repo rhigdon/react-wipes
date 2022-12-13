@@ -20,7 +20,6 @@ export function Overlay({children, message, start, onFinish, timeout}) {
   React.useEffect(() => {
     setTop(parseInt(window.scrollY, 10))
   }, [])
-  console.log(top)
   return (
     <>
       <div style={{
