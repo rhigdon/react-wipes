@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  ClockWipe,
+  //ClockWipe,
   DiagonalWipe,
   HorizontalWipe,
   MatrixWipe,
@@ -13,7 +13,7 @@ import {
   SplitHorizontalWipe,
   SplitVerticalWipe
 } from 'react-wipes'
-import {} from 'react-wipes'
+import {ClockWipe, PortalWipe} from './react-wipes'
 import {
   HashRouter as Router,
   Switch,
@@ -77,6 +77,11 @@ export function Routes() {
               <ScaleWipe color={primaryColor}>
                 <Home />
               </ScaleWipe>
+          </Route>
+          <Route path="/portal-wipe">
+              <PortalWipe color={primaryColor}>
+                <Home />
+              </PortalWipe>
           </Route>
           <Route path="/star-wipe">
               <StarWipe color={primaryColor}>

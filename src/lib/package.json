@@ -3,15 +3,18 @@
   "author": "Ryan Higdon",
   "license": "MIT",
   "homepage": "https://rhigdon.github.io/react-wipes",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "keywords": [
+    "react",
     "transitions",
     "interstitials"
   ],
   "private": false,
   "dependencies": {
     "animejs": "^3.2.0",
-    "react-anime": "^3.0.3"
+    "react-anime": "^3.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "eslintConfig": {
     "extends": "react-app"

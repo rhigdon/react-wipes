@@ -9,6 +9,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import FileCopyIcon from '@material-ui/icons/FileCopy'
 import {TransitionLink} from 'react-wipes'
 import {Overlay as StarWipeOverlay} from 'react-wipes/StarWipe'
+import {Overlay as PortalOverlay} from '../react-wipes/PortalWipe'
 import {Link, useLocation} from "react-router-dom";
 import {CirclePicker} from 'react-color'
 import {setPrimaryColor} from '../theme/actions'
@@ -30,7 +31,7 @@ function Logo({primaryColor}) {
           />
         </Box>
       </Tooltip>
-      <Typography variant="subtitle1">
+      <Typography variant="h5">
         <Link
           style={{color: primaryColor}}
           to="/"
@@ -110,6 +111,7 @@ export function Home() {
       <Box m={1}>
         <TransitionLink
           color={primaryColor}
+          overlay={StarWipeOverlay}
           to="https://github.com/rhigdon/react-wipes"
         >https://github.com/rhigdon/react-wipes</TransitionLink>
       </Box>
@@ -127,6 +129,7 @@ export function Home() {
       <AppLink to="/horizontal-reverse">Horizontal Reverse</AppLink>
       <AppLink to="/split-horizontal">Split Horizontal</AppLink>
       <AppLink to="/bounce">Bounce</AppLink>
+      <AppLink to="/portal-wipe">Portal</AppLink>
       <Typography variant="h2">Color Support</Typography>
       <Box m={3}>
         <CirclePicker onChangeComplete={color => {
@@ -158,7 +161,7 @@ export function Home() {
           <Grid item>
             <TransitionLink
               color={primaryColor}
-              overlay={StarWipeOverlay}
+              overlay={PortalOverlay}
               to="https://ryanhigdon.com"
             >Ryan Higdon</TransitionLink>
           </Grid>

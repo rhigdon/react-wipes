@@ -38,6 +38,11 @@ function Overlay(_ref) {
       top = _React$useState4[0],
       setTop = _React$useState4[1];
 
+  var _React$useState5 = _react.default.useState(0),
+      _React$useState6 = _slicedToArray(_React$useState5, 2),
+      innerHeight = _React$useState6[0],
+      setInnerHeight = _React$useState6[1];
+
   _react.default.useEffect(function () {
     var mounted = true;
     if (!start) return;
@@ -58,9 +63,9 @@ function Overlay(_ref) {
 
   _react.default.useEffect(function () {
     setTop(parseInt(window.scrollY, 10));
+    setInnerHeight(window.innerHeight);
   }, []);
 
-  console.log(top);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: isVisible ? "block" : "none",
@@ -76,7 +81,7 @@ function Overlay(_ref) {
     style: {
       display: isVisible ? "block" : "none",
       position: "absolute",
-      top: top + window.innerHeight / 2,
+      top: top + innerHeight / 2,
       left: '46%',
       overflow: "hidden",
       zIndex: 100,

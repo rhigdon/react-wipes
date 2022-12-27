@@ -3,6 +3,7 @@ import React from 'react'
 export function Overlay({children, message, start, onFinish, timeout}) {
   const [isVisible, setIsVisible] = React.useState(true)
   const [top, setTop] = React.useState(0)
+  const [innerHeight, setInnerHeight] = React.useState(0)
   React.useEffect(() => {
     let mounted = true
     if (!start) return
@@ -19,6 +20,7 @@ export function Overlay({children, message, start, onFinish, timeout}) {
   }, [start, onFinish, timeout])
   React.useEffect(() => {
     setTop(parseInt(window.scrollY, 10))
+    setInnerHeight(window.innerHeight);
   }, [])
   return (
     <>
@@ -37,7 +39,7 @@ export function Overlay({children, message, start, onFinish, timeout}) {
       <div style={{
         display: isVisible ? "block" : "none",
         position: "absolute",
-        top: top + window.innerHeight / 2,
+        top: top + innerHeight / 2,
         left: '46%',
         overflow: "hidden",
         zIndex: 100,

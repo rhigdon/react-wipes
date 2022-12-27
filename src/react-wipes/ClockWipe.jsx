@@ -11,7 +11,7 @@ export function Overlay(props) {
   )
 }
 function CircleShape({color}) {
-  let style = { position:"fixed", top:0, bottom:0, left:0, right:0, transform: 'scale(3.3)' };
+  let style = { position:"fixed", top:0, bottom:0, left:80, right:0, transform: 'scale(7.0)' };
   React.useEffect(() => {
     var circle = document.getElementById('green-halo');
     var interval = 30;
