@@ -23,7 +23,7 @@ export let BounceWipe = (props) => {
         t.finished.then(() => {
             setIsVisible(false)
         })
-    })
+    }, [])
 
     return (
         <div>
